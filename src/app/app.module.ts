@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const AppRouter: Routes = [
   {
@@ -22,6 +23,7 @@ const AppRouter: Routes = [
   imports: [
     BrowserModule,
     MaterialModule,
+    FlexLayoutModule,
     RouterModule.forRoot(AppRouter, { enableTracing: true })
   ],
   providers: [],

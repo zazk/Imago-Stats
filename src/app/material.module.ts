@@ -1,27 +1,85 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
+  MatIconModule,
   MatDialogModule,
-  MatButtonModule,
+  MatTabsModule,
+  MatChipsModule,
   MatCheckboxModule,
-  MatAutocompleteModule
+  MatButtonModule,
+  MatSelectModule,
+  MatTooltipModule,
+  MatSidenavModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule,
+  MatSlideToggleModule,
+  MatMenuModule,
+  MatProgressSpinnerModule,
+  MatCardModule,
+  MatToolbarModule,
+  MatProgressBarModule,
+  MatRadioModule,
+  MatExpansionModule,
+  MatAutocompleteModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
+    MatIconModule,
     MatDialogModule,
-    MatAutocompleteModule
+    MatTabsModule,
+    MatChipsModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatProgressBarModule,
+    MatRadioModule,
+    MatExpansionModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
+    MatIconModule,
     MatDialogModule,
-    MatAutocompleteModule
+    MatTabsModule,
+    MatChipsModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatProgressBarModule,
+    MatRadioModule,
+    MatExpansionModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule {}
