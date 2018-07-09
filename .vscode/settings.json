@@ -1,5 +1,5 @@
 {
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "editor.fontSize": 11,
   "gitlens.keymap": "alternate",
   "dart.flutterSdkPath": "/Users/user/Works/flutter",
