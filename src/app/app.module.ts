@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './app-home/home.component';
+import { DatosComponent } from './app-datos/datos.component';
+import { HeaderComponent } from './app-header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 const AppRouter: Routes = [
@@ -15,11 +17,19 @@ const AppRouter: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'datos',
+    component: DatosComponent
+  },
+  {
+    path: 'header',
+    component: HeaderComponent
   }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, DatosComponent, HeaderComponent],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -29,4 +39,4 @@ const AppRouter: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
