@@ -1,10 +1,10 @@
 <h2>
   <strong>PREGUNTA:</strong>
-  <p>
+  <span>
     {{pregunta}}
-  </p>
+  </span>
 </h2>
 <mat-radio-group class="radio-group">
-  <mat-radio-button value="1" class="radio-group__radio">El colaborador indicó que la recarga mínima es por un monto superior a S/5 </mat-radio-button>
-  <mat-radio-button value="2" class="radio-group__radio">El colaborador indicó que la recarga mínima es de S/5</mat-radio-button>
+  <app-respuesta *ngFor="let respuesta of respuestas" [respuesta]="respuesta"></app-respuesta>
 </mat-radio-group>
+<div>---</div>

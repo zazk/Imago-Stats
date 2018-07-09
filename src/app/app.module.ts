@@ -9,6 +9,7 @@ import { SeccionComponent } from './app-seccion/seccion.component';
 import { HeaderComponent } from './app-header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PreguntaComponent } from './pregunta/pregunta.component';
+import { RespuestaComponent } from './app-respuesta/respuesta.component';
 
 const AppRouter: Routes = [
   {
@@ -29,7 +30,8 @@ const AppRouter: Routes = [
     DatosComponent,
     HeaderComponent,
     SeccionComponent,
-    PreguntaComponent
+    PreguntaComponent,
+    RespuestaComponent
   ],
   imports: [
     BrowserModule,
@@ -40,4 +42,4 @@ const AppRouter: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
