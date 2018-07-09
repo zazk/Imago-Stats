@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './app-home/home.component';
 import { DatosComponent } from './app-datos/datos.component';
+import { SeccionComponent } from './app-seccion/seccion.component';
 import { HeaderComponent } from './app-header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -17,19 +18,11 @@ const AppRouter: Routes = [
   {
     path: 'home',
     component: HomeComponent
-  },
-  {
-    path: 'datos',
-    component: DatosComponent
-  },
-  {
-    path: 'header',
-    component: HeaderComponent
   }
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, DatosComponent, HeaderComponent],
+  declarations: [AppComponent, HomeComponent, DatosComponent, HeaderComponent, SeccionComponent],
   imports: [
     BrowserModule,
     MaterialModule,

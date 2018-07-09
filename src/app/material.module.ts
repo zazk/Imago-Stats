@@ -82,4 +82,4 @@ import {
     MatNativeDateModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }
