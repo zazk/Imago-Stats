@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    height: 100px; /* Or whatever */
+}
+
+.header__title {
+    width: 33.3%;  /* Or whatever */
+    margin: auto;  /* Magic! */
+}
+
+.header__logo {
+    width: 33.3%;  /* Or whatever */
+    margin: auto;  /* Magic! */
+}
