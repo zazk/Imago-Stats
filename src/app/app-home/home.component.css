@@ -6,7 +6,11 @@
     margin: 40px 0 20px 0;
 }
 .questions,.condicionantes{
-    margin: 0 10px;
+    margin: 0;
+    padding: 10px 20px 25px;
+}
+.condicionantes{
+    background:#EEE;
 }
 .option-respuesta{
     margin: 10px 0;
@@ -17,4 +21,10 @@
 }
 .mat-form-field{
     width: 100%;
+}
+.mat-radio-button span{
+    white-space: normal;
+}
+.mat-checkbox span{
+    white-space: normal;
 }
