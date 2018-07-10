@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import {
   MatIconModule,
@@ -28,6 +29,7 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -53,7 +55,8 @@ import {
     MatExpansionModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatGridListModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -79,7 +82,8 @@ import {
     MatExpansionModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule { }

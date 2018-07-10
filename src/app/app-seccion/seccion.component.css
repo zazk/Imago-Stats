@@ -1,3 +1,6 @@
+.questions{
+    margin: 0 10px;
+}
 .radio-group {
     display: inline-flex;
     flex-direction: column;

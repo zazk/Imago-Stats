@@ -1,0 +1,20 @@
+.main-container{
+    margin: auto;
+    max-width: 1024px;
+}
+.mat-toolbar.mat-primary{
+    margin: 40px 0 20px 0;
+}
+.questions,.condicionantes{
+    margin: 0 10px;
+}
+.option-respuesta{
+    margin: 10px 0;
+    white-space: normal;
+}
+.option-respuesta > label{
+    margin: 10px 0;
+}
+.mat-form-field{
+    width: 100%;
+}
