@@ -8,7 +8,7 @@ import { DataService } from '../services/data.service';
 })
 export class HomeComponent implements OnInit {
   data: any;
-  constructor(public dataService: DataService) {}
+  constructor(public dataService: DataService) { }
   images = [{ value: 'word1.jpg' }, { value: 'word2.jpg' }, { value: '' }];
 
   add() {
@@ -19,5 +19,9 @@ export class HomeComponent implements OnInit {
     this.dataService.getDatas().subscribe(datas => {
       console.log(datas);
     });
+  }
+  onSubmit() {
+    console.log("test");
+    this.dataService.setDatas();
   }
 }

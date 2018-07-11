@@ -15,10 +15,6 @@ export class DataService {
   constructor(public afs: AngularFirestore) {
     // Get collection
     this.datasCollection = this.afs.collection('respuestas');
-    // Create and save example
-    Array.from(new Array(3), (x, i) => i).map(() =>
-      this.datasCollection.add({ calidad_atencion_caja: 5, recarga_minima: 1 })
-    );
 
     // this.tasks = this.afs.collection('tasks').valueChanges();
     this.datas = this.datasCollection.snapshotChanges().map(changes => {
@@ -31,5 +27,13 @@ export class DataService {
   }
   getDatas() {
     return this.datas;
+  }
+  setDatas() {
+    // Create and save example
+    Array.from(new Array(3), (x, i) => i).map(() =>
+      console.log("oks")
+    );
+    this.datasCollection.add({ calidad_atencion_caja: 10, recarga_minima: 1 })
+    this.getDatas();
   }
 }
