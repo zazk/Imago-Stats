@@ -837,8 +837,22 @@
     </div>
     <div class="seccion">
         <div class="questions">
-            <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
-            <input type="hidden">
+            <div>
+                <form #formRef="ngForm">
+                    <div *ngFor="let image of images; let in=index" class="col-sm-3">
+                        <div class="form-group">
+                            <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+                            <input type="text" [(ngModel)]="images[in].value" name="name{{in}}" class="form-control" #name="ngModel" required />
+                            <!--<p [hidden]="images[in].value">Field is required</p>
+                            {{formRef.form.name1}}-->
+                        </div>
+                        <br />
+                    </div>
+                    <button [disabled]="!formRef.form.valid" (click)="add()">Add input</button>
+                </form>
+                <br />
+                <br /> {{images | json}}
+            </div>
         </div>
     </div>
 </div>

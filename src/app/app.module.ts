@@ -10,6 +10,7 @@ import { HeaderComponent } from './app-header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PreguntaComponent } from './pregunta/pregunta.component';
 import { RespuestaComponent } from './respuesta/respuesta.component';
+import { FormsModule } from '@angular/forms';
 
 const AppRouter: Routes = [
   {
@@ -37,6 +38,7 @@ const AppRouter: Routes = [
     BrowserModule,
     MaterialModule,
     FlexLayoutModule,
+    FormsModule,
     RouterModule.forRoot(AppRouter, { enableTracing: true })
   ],
   providers: [],
