@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, SkipSelf, Optional } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
@@ -12,7 +12,10 @@ import { PreguntaComponent } from './pregunta/pregunta.component';
 import { RespuestaComponent } from './respuesta/respuesta.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import {
+  AngularFirestoreModule,
+  AngularFirestore
+} from 'angularfire2/firestore';
 
 import { environment } from '../environments/environment';
 import { DataService } from './services/data.service';
@@ -45,10 +48,17 @@ const AppRouter: Routes = [
     FlexLayoutModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule,
     RouterModule.forRoot(AppRouter, { enableTracing: true })
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private afs: AngularFirestore) {
+    afs.firestore.settings({
+      timestampsInSnapshots: true
+    });
+    afs.firestore.enablePersistence();
+  }
+}

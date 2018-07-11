@@ -11,6 +11,7 @@ export const environment = {
     databaseURL: 'https://imago-happyland.firebaseio.com',
     projectId: 'imago-happyland',
     storageBucket: 'imago-happyland.appspot.com',
-    messagingSenderId: '313895401905'
+    messagingSenderId: '313895401905',
+    timestampsInSnapshots: true
   }
 };
