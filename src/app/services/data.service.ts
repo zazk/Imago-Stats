@@ -13,9 +13,12 @@ export class DataService {
   datas: Observable<any[]>;
   dataDoc: AngularFirestoreDocument<any>;
   constructor(public afs: AngularFirestore) {
+    // Get collection
     this.datasCollection = this.afs.collection('respuestas');
-    const settings = { timestampsInSnapshots: true };
-    afs.app.firestore().settings(settings);
+    // Create and save example
+    Array.from(new Array(3), (x, i) => i).map(() =>
+      this.datasCollection.add({ calidad_atencion_caja: 5, recarga_minima: 1 })
+    );
 
     // this.tasks = this.afs.collection('tasks').valueChanges();
     this.datas = this.datasCollection.snapshotChanges().map(changes => {
