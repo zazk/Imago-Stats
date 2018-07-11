@@ -5,18 +5,15 @@ import {
   AngularFirestoreDocument
 } from 'angularfire2/firestore';
 
-
 import { Observable } from 'rxjs/Observable';
-
 
 @Injectable()
 export class DataService {
-
   datasCollection: AngularFirestoreCollection<any>;
   datas: Observable<any[]>;
   dataDoc: AngularFirestoreDocument<any>;
   constructor(public afs: AngularFirestore) {
-    this.datasCollection = this.afs.collection('tasks');
+    this.datasCollection = this.afs.collection('respuestas');
     // this.tasks = this.afs.collection('tasks').valueChanges();
     this.datas = this.datasCollection.snapshotChanges().map(changes => {
       return changes.map(a => {
@@ -29,6 +26,4 @@ export class DataService {
   getDatas() {
     return this.datas;
   }
-
-
 }
