@@ -30,9 +30,6 @@ export class DataService {
   }
   setDatas() {
     // Create and save example
-    Array.from(new Array(3), (x, i) => i).map(() =>
-      console.log("oks")
-    );
     this.datasCollection.add({ calidad_atencion_caja: 10, recarga_minima: 1 })
     this.getDatas();
   }
