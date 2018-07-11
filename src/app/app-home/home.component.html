@@ -171,7 +171,7 @@
         </mat-toolbar>
         <div class="questions">
             <h2>
-                <strong>5.Apariencia de los colaboradores:</strong>
+                <strong>5.1.Apariencia de los colaboradores:</strong>
                 <span>
                     HOMBRES
                 </span>
@@ -202,7 +202,7 @@
         </div>
         <div class="questions">
             <h2>
-                <strong>5.Apariencia de los colaboradores:</strong>
+                <strong>5.2.Apariencia de los colaboradores:</strong>
                 <span>
                     MUJERES
                 </span>
@@ -430,8 +430,10 @@
         <div class="questions">
             <h2>
                 <strong>11. Área de Happy Kids:
-                    <br> -Presencia de personal encargado.
-                    <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+                    <span class="text-details">
+                        <br> -Presencia de personal encargado.
+                        <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+                    </span>
                 </strong>
             </h2>
             <mat-radio-group class="radio-group">
@@ -462,8 +464,10 @@
         <div class="questions">
             <h2>
                 <strong>12. Área de Divas:
-                    <br> -Presencia de personal encargado.
-                    <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+                    <span class="text-details">
+                        <br> -Presencia de personal encargado.
+                        <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+                    </span>
                 </strong>
             </h2>
             <mat-radio-group class="radio-group">
@@ -511,7 +515,7 @@
                         En el local habían
                     </P>
                     <mat-form-field>
-                        <input matInput placeholder="Máquinas fuera de servicio">
+                        <input matInput placeholder="XX Máquinas fuera de servicio">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -519,7 +523,7 @@
                         Tenían el letrero avisando que están fuera de servicio
                     </P>
                     <mat-form-field>
-                        <input matInput placeholder="Número de maquinas">
+                        <input matInput placeholder="XX Máquinas tenian aviso">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -527,7 +531,7 @@
                         Éstas máquinas son:
                     </P>
                     <mat-form-field>
-                        <input matInput placeholder="Lista de maquinas">
+                        <textarea matInput placeholder="Lista de máquinas"></textarea>
                     </mat-form-field>
                 </div>
             </mat-radio-group>
@@ -544,8 +548,8 @@
                         En el local habían
                     </P>
                     <mat-form-field>
-                        <input matInput placeholder="máquinas sucias o mal presentadas (despintadas,
-                        desgastadas,etc). ">
+                        <input matInput placeholder="XX Máquinas sucias o mal presentadas (despintadas,
+                        desgastadas,etc).">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -553,14 +557,14 @@
                         Las máquinas/juegos sucios o mal presentados fueron:
                     </P>
                     <mat-form-field>
-                        <input matInput placeholder="Lista de maquinas">
+                        <input matInput placeholder="Lista de Máquinas">
                     </mat-form-field>
                 </div>
             </mat-radio-group>
         </div>
         <div class="questions">
             <h2>
-                INCIDENCIAS:
+                15.INCIDENCIAS:
             </h2>
             <div class="">
                 <div class="option-respuesta">
@@ -591,28 +595,28 @@
                         </span>
                     </mat-checkbox>
                 </div>
-                <div class="">
+                <div class="option-respuesta">
                     <mat-checkbox class="">
                         <span>
                             Canje no está surtido con productos de diferente valor en tickets.
                         </span>
                     </mat-checkbox>
                 </div>
-                <div class="">
+                <div class="option-respuesta">
                     <mat-checkbox class="">
                         <span>
                             Happy Sweet: Sin precios puestos o no está surtido de productos como: pop corn, churros, hotdogs).
                         </span>
                     </mat-checkbox>
                 </div>
-                <div class="">
+                <div class="option-respuesta">
                     <mat-checkbox class="">
                         <span>
                             Local no tiene señaletica de seguridad.
                         </span>
                     </mat-checkbox>
                 </div>
-                <div class="">
+                <div class="option-respuesta">
                     <mat-checkbox class="">
                         <span>
                             Otros (desperdicios, cajas, bolsas, equipos de limpieza, etc.arrinconados por el local)
@@ -675,10 +679,12 @@
         <div class="questions">
             <h2>
                 <strong>16. Operadores de juegos mecánicos
-                    <br>-SEGURIDAD
-                    <br>-Da las instrucciones de seguridad antes del juego.
-                    <br>-Se encuentra en el centro de control durante la duración del juego.
-                    <br>-RESPETA EL TALLÍMETRO
+                    <span class="text-details">
+                        <br>-SEGURIDAD
+                        <br>-Da las instrucciones de seguridad antes del juego.
+                        <br>-Se encuentra en el centro de control durante la duración del juego.
+                        <br>-RESPETA EL TALLÍMETRO
+                    </span>
                 </strong>
             </h2>
             <mat-radio-group class="radio-group">
@@ -741,7 +747,7 @@
                     </mat-radio-button>
                 </div>
                 <div class="option-respuesta">
-                    <mat-radio-button value="3">
+                    <mat-radio-button value="4">
                         <span>
                             Saludó, atendió con amabilidad, solucionó o buscó solucionar alguna duda o problema que se presentó. SONRISA
                         </span>
@@ -827,6 +833,12 @@
                     <textarea matInput placeholder="CANJE"></textarea>
                 </mat-form-field>
             </div>
+        </div>
+    </div>
+    <div class="seccion">
+        <div class="questions">
+            <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+            <input type="hidden">
         </div>
     </div>
 </div>
