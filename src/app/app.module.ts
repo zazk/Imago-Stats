@@ -13,6 +13,7 @@ import { RespuestaComponent } from './respuesta/respuesta.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 import { environment } from '../environments/environment';
 import { DataService } from './services/data.service';
 
@@ -36,7 +37,6 @@ const AppRouter: Routes = [
     HeaderComponent,
     SeccionComponent,
     PreguntaComponent,
-    AngularFirestoreModule,
     RespuestaComponent
   ],
   imports: [
@@ -45,10 +45,10 @@ const AppRouter: Routes = [
     FlexLayoutModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    DataService,
+    AngularFirestoreModule.enablePersistence(),
     RouterModule.forRoot(AppRouter, { enableTracing: true })
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
