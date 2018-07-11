@@ -11,6 +11,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PreguntaComponent } from './pregunta/pregunta.component';
 import { RespuestaComponent } from './respuesta/respuesta.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
+import { DataService } from './services/data.service';
 
 const AppRouter: Routes = [
   {
@@ -32,6 +36,7 @@ const AppRouter: Routes = [
     HeaderComponent,
     SeccionComponent,
     PreguntaComponent,
+    AngularFirestoreModule,
     RespuestaComponent
   ],
   imports: [
@@ -39,6 +44,8 @@ const AppRouter: Routes = [
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    DataService,
     RouterModule.forRoot(AppRouter, { enableTracing: true })
   ],
   providers: [],
