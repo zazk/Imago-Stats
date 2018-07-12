@@ -7,6 +7,7 @@ import { HomeComponent } from './app-home/home.component';
 import { DatosComponent } from './app-datos/datos.component';
 import { SeccionComponent } from './app-seccion/seccion.component';
 import { HeaderComponent } from './app-header/header.component';
+import { ResultadosComponent } from './resultados/resultados.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PreguntaComponent } from './pregunta/pregunta.component';
 import { RespuestaComponent } from './respuesta/respuesta.component';
@@ -29,6 +30,10 @@ const AppRouter: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'resultados',
+    component: ResultadosComponent
   }
 ];
 
@@ -37,6 +42,7 @@ const AppRouter: Routes = [
     AppComponent,
     HomeComponent,
     DatosComponent,
+    ResultadosComponent,
     HeaderComponent,
     SeccionComponent,
     PreguntaComponent,

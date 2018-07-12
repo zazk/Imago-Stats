@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   }
   onSubmit(form: any) {
     console.log('test', form.value);
-    // this.dataService.setDatas({ any: 1 });
+    this.dataService.setDatas(form.value);
   }
-  onFileChange(event: any) {}
+  onFileChange(event: any) { }
 }
