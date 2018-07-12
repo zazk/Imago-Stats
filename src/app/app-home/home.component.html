@@ -1,865 +1,864 @@
 <div class="main-container">
-    <!--App Servicio
+  <!--App Servicio
     <app-seccion></app-seccion>-->
-    <!-- RECEPCIÓN / ATENCIÓN EN CAJA -->
-    <app-header></app-header>
-    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <app-datos></app-datos>
-        <div class="seccion">
-            <mat-toolbar color="primary">
-                <span>
-                    RECEPCIÓN / ATENCIÓN EN CAJA
-                </span>
-            </mat-toolbar>
-            <div class="condicionantes">
-                <h2>
-                    *PREGUNTAR: ¿Cuanto cuesta la recarga mínima?
-                </h2>
-                <mat-radio-group class="" [(ngModel)]="data.calidad_atencion_caja" [ngModelOptions]="{standalone: true}">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                El colaborador indicó que la recarga mínima es por un monto superior a S/5
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="5">
-                            <span>
-                                El colaborador indicó que la recarga mínima es de S/5
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>1. Al llegar al punto de venta</strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                Esperé mas de 3 min, hubo una cola de más de tres personas y no se aperturó otra caja.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                No saludó, estaban distraídos, no había interés en la atención.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="4">
-                            <span>
-                                No esperé, me saludaron y atendieron con amabilidad.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="5">
-                            <span>
-                                No esperé. Saludó y atendió amablemente. Menciona a Happpyland en el saludo.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <P>
-                    Al llegar a la caja tuve que esperar
-                </P>
-                <mat-form-field>
-                    <input matInput placeholder="XX Minutos">
-                </mat-form-field>
-            </div>
-            <div class="questions">
-                <P>
-                    Además de mi habían
-                </P>
-                <mat-form-field>
-                    <input matInput placeholder="XX Personas en la fila">
-                </mat-form-field>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>2. Calidad de la atención en caja</strong>
-                </h2>
-                <mat-radio-group class="radio-group" [(ngModel)]="data.recarga_minima" [ngModelOptions]="{standalone: true}">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                Colaborador distraído, no tenía conocimiento de los productos
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Colaborador solo tomaba los pedidos del cliente
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="5">
-                            <span>
-                                Colaborador se mostró interesado en atenderme e hizo preguntas para mejorar mi experiencia.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>
-                        3. Venta sugestiva: Impulsación de ventas y promociones
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No ofreció adicionales ó recargas superiores
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="5">
-                            <span>
-                                Impulsó cargas superiores a la solicitada
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>4. Al salir del punto de venta</strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No se despidió o No agradeció
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Solo se despidió o agradeció
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="5">
-                            <span>
-                                Se despidió, sonrió y me invitó a disfrutar de mi carga o a divertirme.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-        </div>
-        <!--experiencia de servicio-->
-        <div class="seccion">
-            <mat-toolbar color="primary">
-                <span>
-                    EXPERIENCIA DE SERVICIO
-                </span>
-            </mat-toolbar>
-            <div class="questions">
-                <h2>
-                    <strong>5.1.Apariencia de los colaboradores:</strong>
-                    <span>
-                        HOMBRES
-                    </span>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No presentaba el uniforme completo
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Regular presentación del personal, uniforme incompleto
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Presentaba el uniforme completo y bien presentado, con solapero y cabello ordenado.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>5.2.Apariencia de los colaboradores:</strong>
-                    <span>
-                        MUJERES
-                    </span>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No presentaba el uniforme completo
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Regular presentación del personal, uniforme incompleto
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Presentaba el uniforme completo y bien presentado, con solapero y el cabello en cola de caballo (o según la presentación
-                                de su unidad de negocio)
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>6.Actitud personal:</strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No saludó ni sonrió. La atención no es amable.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Alto tiempo de espera, personal ocupado no muestra disposición de atención.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Personal ocupado pero muestra disposición en atender. Es amable.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="4">
-                            <span>
-                                Atiende amablemente con una sonrisa y un buen tono de voz
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong> 7.Asesoría en la atención de los juegos:
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No dio solución al problema ó consulta que se presento
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Buscó ayuda para solucionar el problema o consulta que se presentó.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Dio solución al problema ó consulta que se presento.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-        </div>
-        <!--unidades de negocio-->
-        <div class="seccion">
-            <mat-toolbar color="primary">
-                <span>
-                    UNIDADES DE NEGOCIO
-                </span>
-            </mat-toolbar>
-            <div class="condicionantes">
-                <h2>
-                    Este local cuenta con las siguientes unidades de negocio:
-                </h2>
-                <div class="">
-                    <div class="option-respuesta">
-                        <mat-checkbox class="example-margin">
-                            <span>
-                                *Happy Birthday (área de cumpleaños)
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="example-margin">
-                            <span>
-                                *Happy Kids
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="example-margin">
-                            <span>
-                                *Happy Divas
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                </div>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>8. Área de cumpleaños Happy Bday</strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No presentaba el uniforme completo
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Regular presentación del personal, uniforme incompleto
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Presentaba el uniforme completo y bien presentado, con solapero y cabello ordenado.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>9. Información sobre atención de cumpleaños:
-                    </strong>
-                    <span>
-                    </span>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No brindó información.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Buscó a otro compañero para dar información, estando el disponible. Se mostró el BOOK.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Buscó a otro compañero para dar información, por estar atendiendo a otro cliente. Se mostró el BOOK.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Brindó la información correcta mostrando el BOOK.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>10. Negociación BDAY: Manejo de objeciones :
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No supo contestar las dudas u objeciones brindados por el cliente
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Buscó despejar las dudas u objeciones brindados por el cliente
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Contestó claramente las dudas u objeciones brindados por el cliente
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>11. Área de Happy Kids:
-                        <span class="text-details">
-                            <br> -Presencia de personal encargado.
-                            <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
-                        </span>
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                Área sin el personal encargado.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Con el personal a cargo. Mala presentación del área (elementos deteriorados, malla rota, espumas tiradas,
-                            </span>
-                            pelotas fuera del área..)
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Happy Kids con el personal a cargo y área correctamente presentada.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>12. Área de Divas:
-                        <span class="text-details">
-                            <br> -Presencia de personal encargado.
-                            <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
-                        </span>
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                Área sin el personal encargado.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Con el personal a cargo. Mala presentación del área.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Happy Divas con el personal a cargo y área correctamente presentada.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-
-        </div>
-        <!--Operativilidad del local y limpieza-->
-        <div class="seccion">
-            <mat-toolbar color="primary">
-                <span>
-                    OPERATIVIDAD DEL LOCAL Y LIMPIEZA
-                </span>
-            </mat-toolbar>
-            <div class="questions">
-                <h2>
-                    <strong>
-                        13. Funcionamiento de Máquinas:
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="question">
-                        <P>
-                            En el local habían
-                        </P>
-                        <mat-form-field>
-                            <input matInput placeholder="XX Máquinas fuera de servicio">
-                        </mat-form-field>
-                    </div>
-                    <div class="question">
-                        <P>
-                            Tenían el letrero avisando que están fuera de servicio
-                        </P>
-                        <mat-form-field>
-                            <input matInput placeholder="XX Máquinas tenian aviso">
-                        </mat-form-field>
-                    </div>
-                    <div class="question">
-                        <P>
-                            Éstas máquinas son:
-                        </P>
-                        <mat-form-field>
-                            <textarea matInput placeholder="Lista de máquinas"></textarea>
-                        </mat-form-field>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>
-                        14. Limpieza y presentación de máquinas
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="question">
-                        <P>
-                            En el local habían
-                        </P>
-                        <mat-form-field>
-                            <input matInput placeholder="XX Máquinas sucias o mal presentadas (despintadas,
-                        desgastadas,etc).">
-                        </mat-form-field>
-                    </div>
-                    <div class="question">
-                        <P>
-                            Las máquinas/juegos sucios o mal presentados fueron:
-                        </P>
-                        <mat-form-field>
-                            <input matInput placeholder="Lista de Máquinas">
-                        </mat-form-field>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    15.INCIDENCIAS:
-                </h2>
-                <div class="">
-                    <div class="option-respuesta">
-                        <mat-checkbox class="">
-                            <span>
-                                Paredes manchadas
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="">
-                            <span>
-                                Pisos sucios o con basura.
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="">
-                            <span>
-                                Máquinas sucias/en mal estado
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="">
-                            <span>
-                                Mala iluminación.
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="">
-                            <span>
-                                Canje no está surtido con productos de diferente valor en tickets.
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="">
-                            <span>
-                                Happy Sweet: Sin precios puestos o no está surtido de productos como: pop corn, churros, hotdogs).
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="">
-                            <span>
-                                Local no tiene señaletica de seguridad.
-                            </span>
-                        </mat-checkbox>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-checkbox class="">
-                            <span>
-                                Otros (desperdicios, cajas, bolsas, equipos de limpieza, etc.arrinconados por el local)
-                            </span>
-                        </mat-checkbox>
-                        <div class="otros">
-                            <mat-form-field>
-                                <textarea matInput placeholder="Lista de cosas"></textarea>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="condicionantes">
-                <h2>
-                    <strong>
-                        ¿El local estaba en procesos de remodelación?
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                Si
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                No
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>
-                        ¿Habían avisos/señalización de las mejoras de remodelación?
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                Si
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                No
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>16. Operadores de juegos mecánicos
-                        <span class="text-details">
-                            <br>-SEGURIDAD
-                            <br>-Da las instrucciones de seguridad antes del juego.
-                            <br>-Se encuentra en el centro de control durante la duración del juego.
-                            <br>-RESPETA EL TALLÍMETRO
-                        </span>
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No cumple con las tareas de seguridad
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                Cumple las tareas a medias
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Cumple todas las tareas
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-        </div>
-        <div class="seccion">
-            <mat-toolbar color="primary">
-                <span>
-                    CANJE
-                </span>
-            </mat-toolbar>
-            <div class="questions">
-                <h2>
-                    <strong>
-                        17. Calidad de atención
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No había nadie en canje. Esperé más de 2 minutos.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="2">
-                            <span>
-                                No saludó, atendió poco atento
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="3">
-                            <span>
-                                Esperé más de 2 minutos. Saludó y atendió con amabilidad.
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="4">
-                            <span>
-                                Saludó, atendió con amabilidad, solucionó o buscó solucionar alguna duda o problema que se presentó. SONRISA
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-                <div class="question">
-                    <P>
-                        En canje tuve que esperar
-                    </P>
-                    <mat-form-field>
-                        <input matInput placeholder="Minutos">
-                    </mat-form-field>
-                </div>
-                <div class="question">
-                    <P>
-                        Además de mi habían
-                    </P>
-                    <mat-form-field>
-                        <input matInput placeholder="Personas en la fila">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="questions">
-                <h2>
-                    <strong>18.- Despedida en canje
-                    </strong>
-                </h2>
-                <mat-radio-group class="radio-group">
-                    <div class="option-respuesta">
-                        <mat-radio-button value="1">
-                            <span>
-                                No se despidió. No invitó a regresar
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="4">
-                            <span>
-                                Sólo se despidió. SONRISA
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                    <div class="option-respuesta">
-                        <mat-radio-button value="5">
-                            <span>
-                                Invitó a regresar y menciona a happyland en su despedida
-                            </span>
-                        </mat-radio-button>
-                    </div>
-                </mat-radio-group>
-            </div>
-        </div>
-        <div class="seccion">
-            <mat-toolbar color="primary">
-                <span>
-                    COMENTARIOS
-                </span>
-            </mat-toolbar>
-            <div class="questions">
-                <div class="question">
-                    <mat-form-field>
-                        <textarea matInput placeholder="RECEPCIÓN / ATENCIÓN EN CAJA"></textarea>
-                    </mat-form-field>
-                </div>
-                <div class="question">
-                    <mat-form-field>
-                        <textarea matInput placeholder="EXPERIENCIA DE SERVICIO"></textarea>
-                    </mat-form-field>
-                </div>
-                <div class="question">
-                    <mat-form-field>
-                        <textarea matInput placeholder="UNIDADES DE NEGOCIO"></textarea>
-                    </mat-form-field>
-                </div>
-                <div class="question">
-                    <mat-form-field>
-                        <textarea matInput placeholder="OPERATIVIDAD DEL LOCAL Y LIMPIEZA"></textarea>
-                    </mat-form-field>
-                </div>
-                <div class="question">
-                    <mat-form-field>
-                        <textarea matInput placeholder="CANJE"></textarea>
-                    </mat-form-field>
-                </div>
-            </div>
-            <div>{{data | json}}</div>
-        </div>
-        <div class="seccion">
-            <div class="questions">
-                <button mat-button color="primary" class="submit-btn" type="submit">Enviar</button>
-            </div>
-        </div>
-    </form>
+  <!-- RECEPCIÓN / ATENCIÓN EN CAJA -->
+  <app-header></app-header>
+  <p>Form value: {{ myForm.value | json }}</p>
+  <!-- {food: 'lamb' } -->
+  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
+    <app-datos></app-datos>
     <div class="seccion">
-        <div class="questions">
-            <div>
-                <form #formRef="ngForm">
-                    <div *ngFor="let image of images; let in=index" class="col-sm-3">
-                        <div class="form-group">
-                            <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
-                            <input type="text" [(ngModel)]="images[in].value" name="name{{in}}" class="form-control" #name="ngModel" required />
-                            <!--<p [hidden]="images[in].value">Field is required</p>
-                        {{formRef.form.name1}}-->
-                        </div>
-                        <br />
-                    </div>
-                    <button [disabled]="!formRef.form.valid" (click)="add()">Add input</button>
-                </form>
-                <br />
-                <br /> {{images | json}}
-            </div>
-        </div>
+      <mat-toolbar color="primary">
+        <span>
+          RECEPCIÓN / ATENCIÓN EN CAJA
+        </span>
+      </mat-toolbar>
+      <div class="condicionantes">
+        <h2>
+          *PREGUNTAR: ¿Cuanto cuesta la recarga mínima?
+        </h2>
+        <mat-radio-group class="" name="recargaMinima" formControlName="recargaMinima">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                El colaborador indicó que la recarga mínima es por un monto superior a S/5
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="5">
+              <span>
+                El colaborador indicó que la recarga mínima es de S/5
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>1. Al llegar al punto de venta</strong>
+        </h2>
+        <mat-radio-group class="radio-group" name="puntoVenta" formControlName="puntoVenta">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                Esperé mas de 3 min, hubo una cola de más de tres personas y no se aperturó otra caja.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                No saludó, estaban distraídos, no había interés en la atención.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="4">
+              <span>
+                No esperé, me saludaron y atendieron con amabilidad.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="5">
+              <span>
+                No esperé. Saludó y atendió amablemente. Menciona a Happpyland en el saludo.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <P>
+          Al llegar a la caja tuve que esperar
+        </P>
+        <mat-form-field>
+          <input matInput placeholder="XX Minutos">
+        </mat-form-field>
+      </div>
+      <div class="questions">
+        <P>
+          Además de mi habían
+        </P>
+        <mat-form-field>
+          <input matInput placeholder="XX Personas en la fila">
+        </mat-form-field>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>2. Calidad de la atención en caja</strong>
+        </h2>
+        <mat-radio-group class="radio-group" [(ngModel)]="data.recarga_minima" [ngModelOptions]="{standalone: true}">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                Colaborador distraído, no tenía conocimiento de los productos
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Colaborador solo tomaba los pedidos del cliente
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="5">
+              <span>
+                Colaborador se mostró interesado en atenderme e hizo preguntas para mejorar mi experiencia.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>
+            3. Venta sugestiva: Impulsación de ventas y promociones
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No ofreció adicionales ó recargas superiores
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="5">
+              <span>
+                Impulsó cargas superiores a la solicitada
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>4. Al salir del punto de venta</strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No se despidió o No agradeció
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Solo se despidió o agradeció
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="5">
+              <span>
+                Se despidió, sonrió y me invitó a disfrutar de mi carga o a divertirme.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
     </div>
+    <!--experiencia de servicio-->
+    <div class="seccion">
+      <mat-toolbar color="primary">
+        <span>
+          EXPERIENCIA DE SERVICIO
+        </span>
+      </mat-toolbar>
+      <div class="questions">
+        <h2>
+          <strong>5.1.Apariencia de los colaboradores:</strong>
+          <span>
+            HOMBRES
+          </span>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No presentaba el uniforme completo
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Regular presentación del personal, uniforme incompleto
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Presentaba el uniforme completo y bien presentado, con solapero y cabello ordenado.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>5.2.Apariencia de los colaboradores:</strong>
+          <span>
+            MUJERES
+          </span>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No presentaba el uniforme completo
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Regular presentación del personal, uniforme incompleto
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Presentaba el uniforme completo y bien presentado, con solapero y el cabello en cola de caballo (o según la presentación
+                de su unidad de negocio)
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>6.Actitud personal:</strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No saludó ni sonrió. La atención no es amable.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Alto tiempo de espera, personal ocupado no muestra disposición de atención.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Personal ocupado pero muestra disposición en atender. Es amable.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="4">
+              <span>
+                Atiende amablemente con una sonrisa y un buen tono de voz
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong> 7.Asesoría en la atención de los juegos:
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No dio solución al problema ó consulta que se presento
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Buscó ayuda para solucionar el problema o consulta que se presentó.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Dio solución al problema ó consulta que se presento.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+    </div>
+    <!--unidades de negocio-->
+    <div class="seccion">
+      <mat-toolbar color="primary">
+        <span>
+          UNIDADES DE NEGOCIO
+        </span>
+      </mat-toolbar>
+      <div class="condicionantes">
+        <h2>
+          Este local cuenta con las siguientes unidades de negocio:
+        </h2>
+        <div class="">
+          <div class="option-respuesta">
+            <mat-checkbox class="example-margin">
+              <span>
+                *Happy Birthday (área de cumpleaños)
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="example-margin">
+              <span>
+                *Happy Kids
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="example-margin">
+              <span>
+                *Happy Divas
+              </span>
+            </mat-checkbox>
+          </div>
+        </div>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>8. Área de cumpleaños Happy Bday</strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No presentaba el uniforme completo
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Regular presentación del personal, uniforme incompleto
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Presentaba el uniforme completo y bien presentado, con solapero y cabello ordenado.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>9. Información sobre atención de cumpleaños:
+          </strong>
+          <span>
+          </span>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No brindó información.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Buscó a otro compañero para dar información, estando el disponible. Se mostró el BOOK.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Buscó a otro compañero para dar información, por estar atendiendo a otro cliente. Se mostró el BOOK.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Brindó la información correcta mostrando el BOOK.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>10. Negociación BDAY: Manejo de objeciones :
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No supo contestar las dudas u objeciones brindados por el cliente
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Buscó despejar las dudas u objeciones brindados por el cliente
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Contestó claramente las dudas u objeciones brindados por el cliente
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>11. Área de Happy Kids:
+            <span class="text-details">
+              <br> -Presencia de personal encargado.
+              <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+            </span>
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                Área sin el personal encargado.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Con el personal a cargo. Mala presentación del área (elementos deteriorados, malla rota, espumas tiradas,
+              </span>
+              pelotas fuera del área..)
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Happy Kids con el personal a cargo y área correctamente presentada.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>12. Área de Divas:
+            <span class="text-details">
+              <br> -Presencia de personal encargado.
+              <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+            </span>
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                Área sin el personal encargado.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Con el personal a cargo. Mala presentación del área.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Happy Divas con el personal a cargo y área correctamente presentada.
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+
+    </div>
+    <!--Operativilidad del local y limpieza-->
+    <div class="seccion">
+      <mat-toolbar color="primary">
+        <span>
+          OPERATIVIDAD DEL LOCAL Y LIMPIEZA
+        </span>
+      </mat-toolbar>
+      <div class="questions">
+        <h2>
+          <strong>
+            13. Funcionamiento de Máquinas:
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="question">
+            <P>
+              En el local habían
+            </P>
+            <mat-form-field>
+              <input matInput placeholder="XX Máquinas fuera de servicio">
+            </mat-form-field>
+          </div>
+          <div class="question">
+            <P>
+              Tenían el letrero avisando que están fuera de servicio
+            </P>
+            <mat-form-field>
+              <input matInput placeholder="XX Máquinas tenian aviso">
+            </mat-form-field>
+          </div>
+          <div class="question">
+            <P>
+              Éstas máquinas son:
+            </P>
+            <mat-form-field>
+              <textarea matInput placeholder="Lista de máquinas"></textarea>
+            </mat-form-field>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>
+            14. Limpieza y presentación de máquinas
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="question">
+            <P>
+              En el local habían
+            </P>
+            <mat-form-field>
+              <input matInput placeholder="XX Máquinas sucias o mal presentadas (despintadas,
+                        desgastadas,etc).">
+            </mat-form-field>
+          </div>
+          <div class="question">
+            <P>
+              Las máquinas/juegos sucios o mal presentados fueron:
+            </P>
+            <mat-form-field>
+              <input matInput placeholder="Lista de Máquinas">
+            </mat-form-field>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          15.INCIDENCIAS:
+        </h2>
+        <div class="">
+          <div class="option-respuesta">
+            <mat-checkbox class="">
+              <span>
+                Paredes manchadas
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="">
+              <span>
+                Pisos sucios o con basura.
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="">
+              <span>
+                Máquinas sucias/en mal estado
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="">
+              <span>
+                Mala iluminación.
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="">
+              <span>
+                Canje no está surtido con productos de diferente valor en tickets.
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="">
+              <span>
+                Happy Sweet: Sin precios puestos o no está surtido de productos como: pop corn, churros, hotdogs).
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="">
+              <span>
+                Local no tiene señaletica de seguridad.
+              </span>
+            </mat-checkbox>
+          </div>
+          <div class="option-respuesta">
+            <mat-checkbox class="">
+              <span>
+                Otros (desperdicios, cajas, bolsas, equipos de limpieza, etc.arrinconados por el local)
+              </span>
+            </mat-checkbox>
+            <div class="otros">
+              <mat-form-field>
+                <textarea matInput placeholder="Lista de cosas"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="condicionantes">
+        <h2>
+          <strong>
+            ¿El local estaba en procesos de remodelación?
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                Si
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                No
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>
+            ¿Habían avisos/señalización de las mejoras de remodelación?
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                Si
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                No
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>16. Operadores de juegos mecánicos
+            <span class="text-details">
+              <br>-SEGURIDAD
+              <br>-Da las instrucciones de seguridad antes del juego.
+              <br>-Se encuentra en el centro de control durante la duración del juego.
+              <br>-RESPETA EL TALLÍMETRO
+            </span>
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No cumple con las tareas de seguridad
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                Cumple las tareas a medias
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Cumple todas las tareas
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="seccion">
+      <mat-toolbar color="primary">
+        <span>
+          CANJE
+        </span>
+      </mat-toolbar>
+      <div class="questions">
+        <h2>
+          <strong>
+            17. Calidad de atención
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No había nadie en canje. Esperé más de 2 minutos.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="2">
+              <span>
+                No saludó, atendió poco atento
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="3">
+              <span>
+                Esperé más de 2 minutos. Saludó y atendió con amabilidad.
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="4">
+              <span>
+                Saludó, atendió con amabilidad, solucionó o buscó solucionar alguna duda o problema que se presentó. SONRISA
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+        <div class="question">
+          <P>
+            En canje tuve que esperar
+          </P>
+          <mat-form-field>
+            <input matInput placeholder="Minutos">
+          </mat-form-field>
+        </div>
+        <div class="question">
+          <P>
+            Además de mi habían
+          </P>
+          <mat-form-field>
+            <input matInput placeholder="Personas en la fila">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="questions">
+        <h2>
+          <strong>18.- Despedida en canje
+          </strong>
+        </h2>
+        <mat-radio-group class="radio-group">
+          <div class="option-respuesta">
+            <mat-radio-button value="1">
+              <span>
+                No se despidió. No invitó a regresar
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="4">
+              <span>
+                Sólo se despidió. SONRISA
+              </span>
+            </mat-radio-button>
+          </div>
+          <div class="option-respuesta">
+            <mat-radio-button value="5">
+              <span>
+                Invitó a regresar y menciona a happyland en su despedida
+              </span>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="seccion">
+      <mat-toolbar color="primary">
+        <span>
+          COMENTARIOS
+        </span>
+      </mat-toolbar>
+      <div class="questions">
+        <div class="question">
+          <mat-form-field>
+            <textarea formControlName="recepcion" matInput placeholder="RECEPCIÓN / ATENCIÓN EN CAJA"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="question">
+          <mat-form-field>
+            <textarea formControlName="experiencia" matInput placeholder="EXPERIENCIA DE SERVICIO"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="question">
+          <mat-form-field>
+            <textarea formControlName="unidades" matInput placeholder="UNIDADES DE NEGOCIO"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="question">
+          <mat-form-field>
+            <textarea formControlName="operatividad" matInput placeholder="OPERATIVIDAD DEL LOCAL Y LIMPIEZA"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="question">
+          <mat-form-field>
+            <textarea formControlName="canje" matInput placeholder="CANJE"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="seccion">
+      <div class="questions">
+        <button mat-raised-button color="primary" class="submit-btn" type="submit">Enviar</button>
+      </div>
+    </div>
+  </form>
+  <div class="seccion">
+    <div class="questions">
+      <div>
+        <form #formRef="ngForm">
+          <div *ngFor="let image of images; let in=index" class="col-sm-3">
+            <div class="form-group">
+              <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+              <input type="text" [(ngModel)]="images[in].value" name="name{{in}}" class="form-control" #name="ngModel" required />
+              <!--<p [hidden]="images[in].value">Field is required</p>
+                        {{formRef.form.name1}}-->
+            </div>
+            <br />
+          </div>
+          <button [disabled]="!formRef.form.valid" (click)="add()">Add input</button>
+        </form>
+      </div>
+    </div>
+  </div>

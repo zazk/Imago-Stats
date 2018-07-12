@@ -28,9 +28,10 @@ export class DataService {
   getDatas() {
     return this.datas;
   }
-  setDatas() {
+  setDatas(data: any) {
     // Create and save example
-    this.datasCollection.add({ calidad_atencion_caja: 10, recarga_minima: 1 })
+    // this.datasCollection.add({ calidad_atencion_caja: 10, recarga_minima: 1 })
+    this.datasCollection.add(data);
     this.getDatas();
   }
 }
