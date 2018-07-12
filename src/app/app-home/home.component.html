@@ -6,6 +6,9 @@
     <!--
     <p>Form value: {{ myForm.value | json }}</p>-->
     <!-- {food: 'lamb' } -->
+    <a href="/resultados">
+        Ver todos los resultados
+    </a>
     <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
         <app-datos></app-datos>
         <div class="seccion">
@@ -18,7 +21,7 @@
                 <h2>
                     *PREGUNTAR: ¿Cuanto cuesta la recarga mínima?
                 </h2>
-                <mat-radio-group class="" name="recargaMinima" formControlName="recargaMinima">
+                <mat-radio-group class="" name="pv_recargaMinima" formControlName="pv_recargaMinima">
                     <div class="option-respuesta">
                         <mat-radio-button value="1">
                             <span>
@@ -39,7 +42,7 @@
                 <h2>
                     <strong>1. Al llegar al punto de venta</strong>
                 </h2>
-                <mat-radio-group class="radio-group" name="puntoVenta" formControlName="puntoVenta">
+                <mat-radio-group class="radio-group" name="pv_llegadaPuntoVenta" formControlName="pv_llegadaPuntoVenta">
                     <div class="option-respuesta">
                         <mat-radio-button value="1">
                             <span>
@@ -74,7 +77,7 @@
                 <P>
                     Al llegar a la caja tuve que esperar
                 </P>
-                <mat-form-field>
+                <mat-form-field formControlName="pv_minutosEspera">
                     <input matInput placeholder="XX Minutos">
                 </mat-form-field>
             </div>
@@ -82,7 +85,7 @@
                 <P>
                     Además de mi habían
                 </P>
-                <mat-form-field>
+                <mat-form-field formControlName="pv_personasFila">
                     <input matInput placeholder="XX Personas en la fila">
                 </mat-form-field>
             </div>
@@ -90,7 +93,7 @@
                 <h2>
                     <strong>2. Calidad de la atención en caja</strong>
                 </h2>
-                <mat-radio-group class="radio-group" [(ngModel)]="data.recarga_minima" [ngModelOptions]="{standalone: true}">
+                <mat-radio-group class="radio-group" formControlName="pv_calidadAtencion">
                     <div class="option-respuesta">
                         <mat-radio-button value="1">
                             <span>
@@ -120,7 +123,7 @@
                         3. Venta sugestiva: Impulsación de ventas y promociones
                     </strong>
                 </h2>
-                <mat-radio-group class="radio-group">
+                <mat-radio-group class="radio-group" formControlName="pv_ventaSugestiva">
                     <div class="option-respuesta">
                         <mat-radio-button value="1">
                             <span>
@@ -141,7 +144,7 @@
                 <h2>
                     <strong>4. Al salir del punto de venta</strong>
                 </h2>
-                <mat-radio-group class="radio-group">
+                <mat-radio-group class="radio-group" formControlName="pv_salida">
                     <div class="option-respuesta">
                         <mat-radio-button value="1">
                             <span>
@@ -470,11 +473,17 @@
                     <strong>12. Área de Divas:
                         <span class="text-details">
                             <br> -Presencia de personal encargado.
-                            <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
                         </span>
                     </strong>
                 </h2>
                 <mat-radio-group class="radio-group">
+                    <div class="option-respuesta">
+                        <mat-radio-button value="1">
+                            <span>
+                                Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+                            </span>
+                        </mat-radio-button>
+                    </div>
                     <div class="option-respuesta">
                         <mat-radio-button value="1">
                             <span>
@@ -814,27 +823,27 @@
             <div class="questions">
                 <div class="question">
                     <mat-form-field>
-                        <textarea formControlName="recepcion" matInput placeholder="RECEPCIÓN / ATENCIÓN EN CAJA"></textarea>
+                        <textarea formControlName="com_recepcion" matInput placeholder="RECEPCIÓN / ATENCIÓN EN CAJA"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="question">
                     <mat-form-field>
-                        <textarea formControlName="experiencia" matInput placeholder="EXPERIENCIA DE SERVICIO"></textarea>
+                        <textarea formControlName="com_experiencia" matInput placeholder="EXPERIENCIA DE SERVICIO"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="question">
                     <mat-form-field>
-                        <textarea formControlName="unidades" matInput placeholder="UNIDADES DE NEGOCIO"></textarea>
+                        <textarea formControlName="com_unidades" matInput placeholder="UNIDADES DE NEGOCIO"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="question">
                     <mat-form-field>
-                        <textarea formControlName="operatividad" matInput placeholder="OPERATIVIDAD DEL LOCAL Y LIMPIEZA"></textarea>
+                        <textarea formControlName="com_operatividad" matInput placeholder="OPERATIVIDAD DEL LOCAL Y LIMPIEZA"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="question">
                     <mat-form-field>
-                        <textarea formControlName="canje" matInput placeholder="CANJE"></textarea>
+                        <textarea formControlName="com_canje" matInput placeholder="CANJE"></textarea>
                     </mat-form-field>
                 </div>
             </div>
