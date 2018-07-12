@@ -1,0 +1,41 @@
+<div class="main-container">
+  <mat-toolbar color="primary">
+    <span>
+      Encuestados
+    </span>
+  </mat-toolbar>
+  <div *ngIf="datas?.length > 0;else noDatas">
+    <div class="table-container" *ngFor="let data of datas" class="collection">
+      <h2>
+        Cliente anónimo - {{data.id}}
+      </h2>
+      <table class="">
+        <tr>
+          <th>
+            Punto de venta
+          </th>
+          <td>
+            {{ data.puntoVenta }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Recarga Minima
+          </th>
+          <td>
+            {{ data.recargaMinima }}
+          </td>
+        </tr>
+
+      </table>
+      --------------------------------
+    </div>
+  </div>
+
+
+  <ng-template #noDatas>
+    <h5>
+      Aun no se ha registrado nada
+    </h5>
+  </ng-template>
+</div>
