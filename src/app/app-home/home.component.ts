@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
       oll_listaMaquinasMal: '',
       lp_numMaqSucias: 0,
       lp_listaMaqSucias: 0,
+      /*
       lp_incParedesManchadas: false,
       lp_incPisoSucio: false,
       lp_incMaqSucias: false,
@@ -46,9 +47,12 @@ export class HomeComponent implements OnInit {
       lp_incNoPrecios: false,
       lp_incNoSenhal: false,
       lp_incOtros: false,
+      */
       lp_incListaOtros: '',
       lp_incProRemodelacion: 0,
       lp_incProRemodelacionSenhal: 0,
+      lp_incOperadoresJuegos: 0,
+
       com_canje: '',
       com_recepcion: '',
       com_experiencia: '',
