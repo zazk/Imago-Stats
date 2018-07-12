@@ -1,7 +1,7 @@
 <div class="main-container">
   <mat-toolbar color="primary">
     <span>
-      Encuestados
+      Resultados de Encuestados
     </span>
   </mat-toolbar>
   <div *ngIf="datas?.length > 0;else noDatas">
@@ -15,7 +15,7 @@
             Punto de venta
           </th>
           <td>
-            {{ data.puntoVenta }}
+            Calificación: {{ data.puntoVenta }}
           </td>
         </tr>
         <tr>
@@ -23,7 +23,7 @@
             Recarga Minima
           </th>
           <td>
-            {{ data.recargaMinima }}
+            Calificación: {{ data.recargaMinima }}
           </td>
         </tr>
 

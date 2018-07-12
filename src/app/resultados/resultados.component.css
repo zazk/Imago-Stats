@@ -3,3 +3,18 @@
     max-width: 1024px;
     font-family: 'Open Sans', sans-serif;;
 }
+table{
+    background: #fff;
+    text-align: left;
+    width: 100%;
+}
+table th{
+    background: #ddd;
+    text-align: left;
+    padding: 5px 20px 5px 10px;
+}
+table td{
+    background: #fff;
+    text-align: left;
+    padding: 5px 20px;
+}
