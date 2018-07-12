@@ -6,9 +6,6 @@
   </mat-toolbar>
   <div *ngIf="datas?.length > 0;else noDatas">
     <div class="table-container" *ngFor="let data of datas" class="collection">
-      <h2>
-        Cliente anónimo - {{data.id}}
-      </h2>
       <table class="">
         <tr>
           <th>

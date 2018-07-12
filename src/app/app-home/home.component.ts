@@ -14,13 +14,21 @@ export class HomeComponent implements OnInit {
 
   constructor(public dataService: DataService, fb: FormBuilder) {
     this.form = fb.group({
-      puntoVenta: 0,
-      recargaMinima: 0,
-      operatividad: '',
+      pv_recargaMinima: 0,
+      pv_llegadaPuntoVenta: 0,
+      pv_minutosEspera: 0,
+      pv_personasFila: 0,
+      pv_calidadAtencion: '',
+      pv_ventaSugestiva: '',
+      pv_salida: '',
+      es_aparienciaHombres: '',
+      es_aparienciaMujeres: '',
+      es_actitudPersonal: '',
+      es_asesoriaAtencionJuegos: '',
       canje: '',
       recepcion: '',
       experiencia: '',
-      unidades: ''
+      unidades: '',
     });
   }
   images = [{ value: 'word1.jpg' }, { value: 'word2.jpg' }, { value: '' }];
