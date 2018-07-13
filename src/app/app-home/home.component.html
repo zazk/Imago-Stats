@@ -6,8 +6,8 @@
     <!--
     <p>Form value: {{ myForm.value | json }}</p>-->
     <!-- {food: 'lamb' } -->
-    <mat-toolbar color="" class="toolbar">
-        <span>Navegación</span>
+    <mat-toolbar color="" class="toolbar" align="end">
+        <span></span>
         <a href="/home" mat-raised-button>
             + Nueva encuesta
         </a>
@@ -32,7 +32,7 @@
             </mat-toolbar>
             <div class="condicionantes">
                 <h2>
-                    *PREGUNTAR: ¿Cuanto cuesta la recarga mínima?
+                    *PREGUNTAR: ¿Cuánto cuesta la recarga mínima?
                 </h2>
                 <mat-radio-group class="" name="pv_recargaMinima" formControlName="pv_recargaMinima">
                     <div class="option-respuesta">
@@ -382,10 +382,9 @@
             </div>
             <div class="questions">
                 <h2>
-                    <strong>9. Información sobre atención de cumpleaños:
+                    <strong>
+                        9. Información sobre atención de cumpleaños:
                     </strong>
-                    <span>
-                    </span>
                 </h2>
                 <mat-radio-group class="radio-group" formControlName="un_happyBirthdayAtencion">
                     <div class="option-respuesta">

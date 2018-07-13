@@ -1,12 +1,15 @@
 <div class="main-container">
   <app-header></app-header>
   <mat-toolbar color="" class="toolbar">
-    <span>Navegación</span>
+    <span></span>
     <a href="/home" mat-raised-button>
       + Nueva encuesta
     </a>
     <a href="/resultados" mat-raised-button>
       Ver resultados
+    </a>
+    <a href="/resultados-sucursales" mat-raised-button>
+      Ver resultados por sucursal
     </a>
   </mat-toolbar>
   <mat-toolbar color="primary">
@@ -15,325 +18,332 @@
     </span>
   </mat-toolbar>
   <div *ngIf="datas?.length > 0;else noDatas">
-    <div class="table-container" *ngFor="let data of datas" class="collection">
-      <table class="">
-        <tr>
-          <th>
-            SUCURSAL
-          </th>
-          <td>
-            {{ data.sucursal }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Recarga Minima
-          </th>
-          <td>
-            {{ data.pv_recargaMinima }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Llegada a Punto de venta
-          </th>
-          <td>
-            {{ data.pv_llegadaPuntoVenta }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Al llegar a la caja tuve que esperar xx minutos
-          </th>
-          <td>
-            {{ data.pv_minutosEspera }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Además de mi habían xx personas en la fila
-          </th>
-          <td>
-            {{ data.pv_personasFila }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Calidad de la atención en caja
-          </th>
-          <td>
-            {{ data.pv_calidadAtencion }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Venta sugestiva: Impulsación de ventas y promociones
-          </th>
-          <td>
-            {{ data.pv_ventaSugestiva }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Al salir del punto de venta
-          </th>
-          <td>
-            {{ data.pv_salida }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Apariencia hombres
-          </th>
-          <td>
-            {{ data.es_aparienciaHombres }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Apariencia mujeres
-          </th>
-          <td>
-            {{ data.es_aparienciaMujeres }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Actitud personal
-          </th>
-          <td>
-            {{ data.es_actitudPersonal }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Asesoria atención en juegos
-          </th>
-          <td>
-            {{ data.es_asesoriaAtencionJuegos }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Happy Bday
-          </th>
-          <td>
-            {{ data.un_happyBirthday }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Happy kids
-          </th>
-          <td>
-            {{ data.un_happyKids }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Happy divas
-          </th>
-          <td>
-            {{ data.un_happyDivas }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Happy Birthday presentación
-          </th>
-          <td>
-            {{ data.un_happyBirthdayPresentacion }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Happy Birthday Atención
-          </th>
-          <td>
-            {{ data.un_happyBirthdayAtencion }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Happy Birthday negociación
-          </th>
-          <td>
-            {{ data.un_happyBirthdayNegociacion }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Happy Kids presentación
-          </th>
-          <td>
-            {{ data.un_happyKidsPresentacion }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Happy Divas presentación
-          </th>
-          <td>
-            {{ data.un_happyDivasPresentacion }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Numero de maquinas mal
-          </th>
-          <td>
-            {{ data.oll_numMaquinasMal }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Numero de maquinas mal con letrero
-          </th>
-          <td>
-            {{ data.oll_numMaquinasMalLetrero }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Lista de maquinas mal
-          </th>
-          <td>
-            {{ data.oll_listaMaquinasMal }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Maquinas sucias
-          </th>
-          <td>
-            {{ data.lp_numMaqSucias }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Lista Maquinas sucias
-          </th>
-          <td>
-            {{ data.lp_listaMaqSucias }}
-          </td>
-        </tr>
-        <!-- Checkboxes -->
-        <tr>
-          <th>
-            Lista de incidentes
-          </th>
-          <td>
+    <div class="clearfix" *ngFor="let data of datas" class="collection">
+      <div class="table-container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        <div fxFlex="50%">
+          <table class="">
+            <tr>
+              <th>
+                SUCURSAL
+              </th>
+              <td>
+                {{ data.sucursal }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Recarga Minima
+              </th>
+              <td>
+                {{ data.pv_recargaMinima }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Llegada a Punto de venta
+              </th>
+              <td>
+                {{ data.pv_llegadaPuntoVenta }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Al llegar a la caja tuve que esperar xx minutos
+              </th>
+              <td>
+                {{ data.pv_minutosEspera }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Además de mi habían xx personas en la fila
+              </th>
+              <td>
+                {{ data.pv_personasFila }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Calidad de la atención en caja
+              </th>
+              <td>
+                {{ data.pv_calidadAtencion }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Venta sugestiva: Impulsación de ventas y promociones
+              </th>
+              <td>
+                {{ data.pv_ventaSugestiva }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Al salir del punto de venta
+              </th>
+              <td>
+                {{ data.pv_salida }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Apariencia hombres
+              </th>
+              <td>
+                {{ data.es_aparienciaHombres }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Apariencia mujeres
+              </th>
+              <td>
+                {{ data.es_aparienciaMujeres }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Actitud personal
+              </th>
+              <td>
+                {{ data.es_actitudPersonal }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Asesoria atención en juegos
+              </th>
+              <td>
+                {{ data.es_asesoriaAtencionJuegos }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Happy Bday
+              </th>
+              <td>
+                {{ data.un_happyBirthday }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Happy kids
+              </th>
+              <td>
+                {{ data.un_happyKids }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Happy divas
+              </th>
+              <td>
+                {{ data.un_happyDivas }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Happy Birthday presentación
+              </th>
+              <td>
+                {{ data.un_happyBirthdayPresentacion }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Happy Birthday Atención
+              </th>
+              <td>
+                {{ data.un_happyBirthdayAtencion }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Happy Birthday negociación
+              </th>
+              <td>
+                {{ data.un_happyBirthdayNegociacion }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Happy Kids presentación
+              </th>
+              <td>
+                {{ data.un_happyKidsPresentacion }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Happy Divas presentación
+              </th>
+              <td>
+                {{ data.un_happyDivasPresentacion }}
+              </td>
+            </tr>
 
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Lista de otras maquinas
-          </th>
-          <td>
-            {{ data.lp_incListaOtros }}
-          </td>
-        </tr>
+          </table>
+        </div>
+        <div fxFlex="50%">
+          <table class="">
+            <tr>
+              <th>
+                Numero de maquinas mal
+              </th>
+              <td>
+                {{ data.oll_numMaquinasMal }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Numero de maquinas mal con letrero
+              </th>
+              <td>
+                {{ data.oll_numMaquinasMalLetrero }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Lista de maquinas mal
+              </th>
+              <td>
+                {{ data.oll_listaMaquinasMal }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Maquinas sucias
+              </th>
+              <td>
+                {{ data.lp_numMaqSucias }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Lista Maquinas sucias
+              </th>
+              <td>
+                {{ data.lp_listaMaqSucias }}
+              </td>
+            </tr>
+            <!-- Checkboxes -->
+            <tr>
+              <th>
+                Lista de incidentes
+              </th>
+              <td>
+
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Lista de otras maquinas
+              </th>
+              <td>
+                {{ data.lp_incListaOtros }}
+              </td>
+            </tr>
 
 
-        <tr>
-          <th>
-            Incidencias maquinas en remodelación
-          </th>
-          <td>
-            {{ data.lp_incProRemodelacion }}
-          </td>
-        </tr>
+            <tr>
+              <th>
+                Incidencias maquinas en remodelación
+              </th>
+              <td>
+                {{ data.lp_incProRemodelacion }}
+              </td>
+            </tr>
 
-        <tr>
-          <th>
-            Incidentes remodelación señalizadas
-          </th>
-          <td>
-            {{ data.lp_incProRemodelacionSenhal }}
-          </td>
-        </tr>
+            <tr>
+              <th>
+                Incidentes remodelación señalizadas
+              </th>
+              <td>
+                {{ data.lp_incProRemodelacionSenhal }}
+              </td>
+            </tr>
 
-        <tr>
-          <th>
-            Incidentes Operadores juegos mecanicos
-          </th>
-          <td>
-            {{ data.lp_incOperadoresJuegos }}
-          </td>
-        </tr>
+            <tr>
+              <th>
+                Incidentes Operadores juegos mecanicos
+              </th>
+              <td>
+                {{ data.lp_incOperadoresJuegos }}
+              </td>
+            </tr>
 
-        <tr>
-          <th>
-            Calidad de atención
-          </th>
-          <td>
-            {{ data.c_calidadAtencion }}
-          </td>
-        </tr>
+            <tr>
+              <th>
+                Calidad de atención
+              </th>
+              <td>
+                {{ data.c_calidadAtencion }}
+              </td>
+            </tr>
 
-        <tr>
-          <th>
-            En canje tuve que esperar
-          </th>
-          <td>
-            {{ data.c_canjeEspera }}
-          </td>
-        </tr>
+            <tr>
+              <th>
+                En canje tuve que esperar
+              </th>
+              <td>
+                {{ data.c_canjeEspera }}
+              </td>
+            </tr>
 
-        <tr>
-          <th>
-            Además de mi habían
-          </th>
-          <td>
-            {{ data.c_canjeFila }}
-          </td>
-        </tr>
+            <tr>
+              <th>
+                Además de mi habían
+              </th>
+              <td>
+                {{ data.c_canjeFila }}
+              </td>
+            </tr>
 
-        <tr>
-          <th>
-            Despedida en canje
-          </th>
-          <td>
-            {{ data.c_canjeSalida }}
-          </td>
-        </tr>
+            <tr>
+              <th>
+                Despedida en canje
+              </th>
+              <td>
+                {{ data.c_canjeSalida }}
+              </td>
+            </tr>
 
-        <tr>
-          <th>
-            Comentario de experiencia
-          </th>
-          <td>
-            {{ data.com_experiencia }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Comentario de unidades
-          </th>
-          <td>
-            {{ data.com_unidades }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Comentario de operatividad
-          </th>
-          <td>
-            {{ data.com_operatividad }}
-          </td>
-        </tr>
-        <tr>
-          <th>
-            Comentario de canje
-          </th>
-          <td>
-            {{ data.com_canje }}
-          </td>
-        </tr>
-
-      </table>
-      --------------------------------
+            <tr>
+              <th>
+                Comentario de experiencia
+              </th>
+              <td>
+                {{ data.com_experiencia }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Comentario de unidades
+              </th>
+              <td>
+                {{ data.com_unidades }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Comentario de operatividad
+              </th>
+              <td>
+                {{ data.com_operatividad }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Comentario de canje
+              </th>
+              <td>
+                {{ data.com_canje }}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { Data } from '../models/data';
-
 
 @Component({
-  selector: 'app-resultados',
-  templateUrl: './resultados.component.html',
-  styleUrls: ['./resultados.component.css']
+  selector: 'app-resultados-sucursales',
+  templateUrl: './resultados-sucursales.component.html',
+  styleUrls: ['./resultados-sucursales.component.css']
 })
-export class ResultadosComponent implements OnInit {
+export class ResultadosSucursalesComponent implements OnInit {
 
   datas: any[];
   constructor(public dataService: DataService) { }
+
 
   ngOnInit() {
     this.dataService.getDatas().subscribe(datas => {

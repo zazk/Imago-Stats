@@ -24,6 +24,7 @@ import {
 import { environment } from '../environments/environment';
 import { DataService } from './services/data.service';
 import { PullSavedComponent } from './pull-saved/pull-saved.component';
+import { ResultadosSucursalesComponent } from './resultados-sucursales/resultados-sucursales.component';
 
 const AppRouter: Routes = [
   {
@@ -42,6 +43,10 @@ const AppRouter: Routes = [
   {
     path: 'pull-saved',
     component: PullSavedComponent
+  },
+  {
+    path: 'resultados-sucursales',
+    component: ResultadosSucursalesComponent
   }
 ];
 
@@ -55,7 +60,8 @@ const AppRouter: Routes = [
     SeccionComponent,
     PreguntaComponent,
     RespuestaComponent,
-    PullSavedComponent
+    PullSavedComponent,
+    ResultadosSucursalesComponent
   ],
   imports: [
     BrowserModule,
