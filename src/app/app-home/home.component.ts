@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit {
       ],
       pv_recargaMinima: 0,
       pv_llegadaPuntoVenta: 0,
-      pv_minutosEspera: 0,
+      pv_minutosEspera: '',
       pv_personasFila: 0,
       pv_calidadAtencion: '',
       pv_ventaSugestiva: '',
@@ -106,6 +106,7 @@ export class HomeComponent implements OnInit {
       oll_listaMaquinasMal: '',
       lp_numMaqSucias: 0,
       lp_listaMaqSucias: 0,
+      un_happyBirthdayPresentacion: 0,
       /*
       lp_incParedesManchadas: false,
       lp_incPisoSucio: false,
@@ -144,7 +145,7 @@ export class HomeComponent implements OnInit {
   }
   onSubmit(form: any) {
     console.log('test', form.value);
-    // this.dataService.setDatas(form.value);
+    this.dataService.setDatas(form.value);
   }
   onFileChange(event: any) {}
 }
