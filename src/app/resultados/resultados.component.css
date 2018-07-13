@@ -12,6 +12,7 @@ table th{
     background: #ddd;
     text-align: left;
     padding: 5px 20px 5px 10px;
+    width: 40%;
 }
 table td{
     background: #fff;
