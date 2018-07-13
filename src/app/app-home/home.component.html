@@ -1,10 +1,10 @@
 <div class="main-container">
     <!--App Servicio
-    <app-seccion></app-seccion>-->
+        <app-seccion></app-seccion>-->
     <!-- RECEPCIÓN / ATENCIÓN EN CAJA -->
     <app-header></app-header>
     <!--
-    <p>Form value: {{ myForm.value | json }}</p>-->
+        <p>Form value: {{ myForm.value | json }}</p>-->
     <!-- {food: 'lamb' } -->
     <a href="/resultados">
         Ver todos los resultados
@@ -77,16 +77,16 @@
                 <P>
                     Al llegar a la caja tuve que esperar
                 </P>
-                <mat-form-field formControlName="pv_minutosEspera">
-                    <input matInput placeholder="XX Minutos">
+                <mat-form-field>
+                    <input matInput placeholder="XX Minutos" formControlName="pv_minutosEspera">
                 </mat-form-field>
             </div>
             <div class="questions">
                 <P>
                     Además de mi habían
                 </P>
-                <mat-form-field formControlName="pv_personasFila">
-                    <input matInput placeholder="XX Personas en la fila">
+                <mat-form-field>
+                    <input formControlName="pv_personasFila" matInput placeholder="XX Personas en la fila">
                 </mat-form-field>
             </div>
             <div class="questions">
@@ -544,8 +544,8 @@
                     <P>
                         Éstas máquinas son:
                     </P>
-                    <mat-form-field formControlName="oll_listaMaquinasMal">
-                        <textarea matInput placeholder="Lista de máquinas"></textarea>
+                    <mat-form-field>
+                        <textarea formControlName="oll_listaMaquinasMal" matInput placeholder="Lista de máquinas"></textarea>
                     </mat-form-field>
                 </div>
             </div>
@@ -560,17 +560,17 @@
                         <P>
                             En el local habían
                         </P>
-                        <mat-form-field formControlName="lp_numMaqSucias">
-                            <input matInput placeholder="XX Máquinas sucias o mal presentadas (despintadas,
-                        desgastadas,etc).">
+                        <mat-form-field>
+                            <input matInput formControlName="lp_numMaqSucias" placeholder="XX Máquinas sucias o mal presentadas (despintadas,
+                            desgastadas,etc).">
                         </mat-form-field>
                     </div>
                     <div class="question">
                         <P>
                             Las máquinas/juegos sucios o mal presentados fueron:
                         </P>
-                        <mat-form-field formControlName="lp_listaMaqSucias">
-                            <input matInput placeholder="Lista de Máquinas">
+                        <mat-form-field>
+                            <input matInput formControlName="lp_listaMaqSucias" placeholder="Lista de Máquinas">
                         </mat-form-field>
                     </div>
                 </mat-radio-group>
@@ -636,8 +636,8 @@
                             </span>
                         </mat-checkbox>
                         <div class="otros">
-                            <mat-form-field formControlName="lp_incListaOtros">
-                                <textarea matInput placeholder="Lista de cosas"></textarea>
+                            <mat-form-field>
+                                <textarea matInput formControlName="lp_incListaOtros" placeholder="Lista de cosas"></textarea>
                             </mat-form-field>
                         </div>
                     </div>
@@ -771,16 +771,16 @@
                     <P>
                         En canje tuve que esperar
                     </P>
-                    <mat-form-field formControlName="c_canjeEspera">
-                        <input matInput placeholder="Minutos">
+                    <mat-form-field>
+                        <input matInput formControlName="c_canjeEspera" placeholder="Minutos">
                     </mat-form-field>
                 </div>
                 <div class="question">
                     <P>
                         Además de mi habían
                     </P>
-                    <mat-form-field formControlName="c_canjeFila">
-                        <input matInput placeholder="Personas en la fila">
+                    <mat-form-field>
+                        <input matInput formControlName="c_canjeFila" placeholder="Personas en la fila">
                     </mat-form-field>
                 </div>
             </div>
@@ -863,7 +863,7 @@
                             <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
                             <input type="text" [(ngModel)]="images[in].value" name="name{{in}}" class="form-control" #name="ngModel" required />
                             <!--<p [hidden]="images[in].value">Field is required</p>
-                        {{formRef.form.name1}}-->
+                            {{formRef.form.name1}}-->
                         </div>
                         <br />
                     </div>

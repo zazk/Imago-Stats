@@ -100,6 +100,7 @@ export class HomeComponent implements OnInit {
       un_happyBirthdayAtencion: 0,
       un_happyBirthdayNegociacion: 0,
       un_happyKidsPresentacion: 0,
+      un_happyBirthdayPresentacion: 0,
       un_happyDivasPresentacion: 0,
       oll_numMaquinasMal: 0,
       oll_numMaquinasMalLetrero: 0,
@@ -146,5 +147,5 @@ export class HomeComponent implements OnInit {
     console.log('test', form.value);
     // this.dataService.setDatas(form.value);
   }
-  onFileChange(event: any) {}
+  onFileChange(event: any) { }
 }
