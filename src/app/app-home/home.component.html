@@ -11,12 +11,11 @@
     </a>
     <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
         <!--<app-datos></app-datos>-->
-        <div class="datos">
-            <form class="datos__form">
-                <mat-form-field class="datos__form_input fw">
-                    <input matInput placeholder="Sucursal" formControlName="sucursal">
-                </mat-form-field>
-            </form>
+
+        <div class="seccion">
+            <mat-form-field>
+                <input matInput formControlName="sucursal" placeholder="XX Personas en la fila">
+            </mat-form-field>
         </div>
         <div class="seccion">
             <mat-toolbar color="primary">
