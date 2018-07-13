@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Data } from '../models/data';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   data = new Data();
   form: FormGroup;
 
-  constructor(public dataService: DataService, fb: FormBuilder) {
+  constructor(public dataService: DataService, fb: FormBuilder, private router: Router) {
     this.form = fb.group({
       puntoVenta: 0,
       recargaMinima: 0,
@@ -148,7 +149,8 @@ export class HomeComponent implements OnInit {
     console.log('test', form.value);
     this.dataService.setDatas(form.value).subscribe(r => {
       console.log('R', r);
+      this.router.navigate(['/pull-saved']);
     });
   }
-  onFileChange(event: any) {}
+  onFileChange(event: any) { }
 }
