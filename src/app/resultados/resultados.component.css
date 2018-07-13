@@ -22,3 +22,6 @@ table td{
 .toolbar a{
     margin: 0 10px
 }
+.toolbar{
+    margin-bottom: 20px;
+}

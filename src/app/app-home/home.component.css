@@ -38,6 +38,14 @@
 .center{
     text-align: center;
 }
+.toolbar{
+    margin-bottom: 20px;
+}
 .toolbar a{
     margin: 0 10px
+}
+.datos{
+    margin: 0;
+    padding: 10px 5px 25px;
+    font-size: 20px;
 }

@@ -9,7 +9,7 @@
     <mat-toolbar color="" class="toolbar">
         <span>Navegación</span>
         <a href="/home" mat-raised-button>
-            Nueva encuesta
+            + Nueva encuesta
         </a>
         <a href="/resultados" mat-raised-button>
             Ver resultados
@@ -19,7 +19,7 @@
     <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
         <!--<app-datos></app-datos>-->
 
-        <div class="seccion">
+        <div class="seccion datos">
             <mat-form-field>
                 <input matInput formControlName="sucursal" placeholder="Sucursal">
             </mat-form-field>
