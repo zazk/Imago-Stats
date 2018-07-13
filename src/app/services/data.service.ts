@@ -6,6 +6,7 @@ import {
 } from 'angularfire2/firestore';
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/fromPromise';
 
 @Injectable()
 export class DataService {
@@ -30,8 +31,7 @@ export class DataService {
   }
   setDatas(data: any) {
     // Create and save example
-    // this.datasCollection.add({ calidad_atencion_caja: 10, recarga_minima: 1 })
-    this.datasCollection.add(data);
     this.getDatas();
+    return Observable.fromPromise(this.datasCollection.add(data));
   }
 }

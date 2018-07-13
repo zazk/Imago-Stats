@@ -13,6 +13,7 @@ import { PreguntaComponent } from './pregunta/pregunta.component';
 import { RespuestaComponent } from './respuesta/respuesta.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { CdkTableModule } from '@angular/cdk/table';
 
 import {
@@ -64,8 +65,9 @@ const AppRouter: Routes = [
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     RouterModule.forRoot(AppRouter, { enableTracing: true }),
-    CdkTableModule,
+    CdkTableModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
