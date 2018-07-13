@@ -1,0 +1,15 @@
+.container{
+    max-width: 1024px;
+    margin: auto;
+}
+.toolbar{
+    margin-bottom: 20px;
+}
+.toolbar a{
+    margin: 0 10px
+}
+.title-thanks{
+    background: rgb(163, 255, 163);
+    padding: 20px;
+    text-align: center;
+}
