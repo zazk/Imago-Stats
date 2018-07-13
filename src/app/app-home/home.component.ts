@@ -120,6 +120,10 @@ export class HomeComponent implements OnInit {
       lp_incProRemodelacion: 0,
       lp_incProRemodelacionSenhal: 0,
       lp_incOperadoresJuegos: 0,
+      c_calidadAtencion: 0,
+      c_canjeEspera: 0,
+      c_canjeFila: 0,
+      c_canjeSalida: 0,
 
       com_canje: '',
       com_recepcion: '',
