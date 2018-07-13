@@ -1,10 +1,10 @@
 <div class="main-container">
     <!--App Servicio
-        <app-seccion></app-seccion>-->
+    <app-seccion></app-seccion>-->
     <!-- RECEPCIÓN / ATENCIÓN EN CAJA -->
     <app-header></app-header>
     <!--
-        <p>Form value: {{ myForm.value | json }}</p>-->
+    <p>Form value: {{ myForm.value | json }}</p>-->
     <!-- {food: 'lamb' } -->
     <a href="/resultados">
         Ver todos los resultados
@@ -78,7 +78,7 @@
                     Al llegar a la caja tuve que esperar
                 </P>
                 <mat-form-field>
-                    <input matInput placeholder="XX Minutos" formControlName="pv_minutosEspera">
+                    <input matInput formControlName="pv_minutosEspera" placeholder="XX Minutos">
                 </mat-form-field>
             </div>
             <div class="questions">
@@ -86,7 +86,7 @@
                     Además de mi habían
                 </P>
                 <mat-form-field>
-                    <input formControlName="pv_personasFila" matInput placeholder="XX Personas en la fila">
+                    <input matInput formControlName="pv_personasFila" placeholder="XX Personas en la fila">
                 </mat-form-field>
             </div>
             <div class="questions">
@@ -315,7 +315,7 @@
                 <h2>
                     Este local cuenta con las siguientes unidades de negocio:
                 </h2>
-                <mat-radio-group class="radio-group" formControlName="">
+                <mat-radio-group class="radio-group">
                     <div class="option-respuesta">
                         <mat-checkbox class="example-margin">
                             <span>
@@ -343,7 +343,7 @@
                 <h2>
                     <strong>8. Área de cumpleaños Happy Bday</strong>
                 </h2>
-                <mat-radio-group class="radio-group" formControlName="un_happyBirthdayPresentacion">
+                <mat-radio-group class="radio-group" name="un_happyBirthdayPresentacion" formControlName="un_happyBirthdayPresentacion">
                     <div class="option-respuesta">
                         <mat-radio-button value="1">
                             <span>
@@ -374,9 +374,9 @@
                     <span>
                     </span>
                 </h2>
-                <mat-radio-group class="radio-group">
+                <mat-radio-group class="radio-group" formControlName="un_happyBirthdayAtencion">
                     <div class="option-respuesta">
-                        <mat-radio-button value="1" formControlName="un_happyBirthdayAtencion">
+                        <mat-radio-button value="1">
                             <span>
                                 No brindó información.
                             </span>
@@ -476,9 +476,9 @@
                         </span>
                     </strong>
                 </h2>
-                <mat-radio-group class="radio-group">
+                <mat-radio-group class="radio-group" formControlName="un_happyDivasPresentacion">
                     <div class="option-respuesta">
-                        <mat-radio-button value="1" formControlName="un_happyDivasPresentacion">
+                        <mat-radio-button value="1">
                             <span>
                                 Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
                             </span>
@@ -562,7 +562,7 @@
                         </P>
                         <mat-form-field>
                             <input matInput formControlName="lp_numMaqSucias" placeholder="XX Máquinas sucias o mal presentadas (despintadas,
-                            desgastadas,etc).">
+                        desgastadas,etc).">
                         </mat-form-field>
                     </div>
                     <div class="question">
@@ -850,25 +850,23 @@
         </div>
         <div class="seccion">
             <div class="questions">
-                <button mat-raised-button color="primary" class="submit-btn" type="submit">Enviar</button>
+                <div>
+                    <form #formRef="ngForm">
+                        <div *ngFor="let image of images; let in=index" class="col-sm-3">
+                            <div class="form-group">
+                                <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+                                <input type="text" [(ngModel)]="images[in].value" name="name{{in}}" class="form-control" #name="ngModel" required />
+                                <!--<p [hidden]="images[in].value">Field is required</p>
+                            {{formRef.form.name1}}-->
+                            </div>
+                            <br />
+                        </div>
+                        <button [disabled]="!formRef.form.valid" (click)="add()">Add input</button>
+                    </form>
+                </div>
             </div>
+        </div>
+        <div class="seccion center">
+            <button mat-raised-button color="primary" class="submit-btn" type="submit">Enviar</button>
         </div>
     </form>
-    <div class="seccion">
-        <div class="questions">
-            <div>
-                <form #formRef="ngForm">
-                    <div *ngFor="let image of images; let in=index" class="col-sm-3">
-                        <div class="form-group">
-                            <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
-                            <input type="text" [(ngModel)]="images[in].value" name="name{{in}}" class="form-control" #name="ngModel" required />
-                            <!--<p [hidden]="images[in].value">Field is required</p>
-                            {{formRef.form.name1}}-->
-                        </div>
-                        <br />
-                    </div>
-                    <button [disabled]="!formRef.form.valid" (click)="add()">Add input</button>
-                </form>
-            </div>
-        </div>
-    </div>
