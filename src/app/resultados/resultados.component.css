@@ -19,3 +19,6 @@ table td{
     text-align: left;
     padding: 5px 20px;
 }
+.toolbar a{
+    margin: 0 10px
+}

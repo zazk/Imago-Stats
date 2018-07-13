@@ -38,3 +38,6 @@
 .center{
     text-align: center;
 }
+.toolbar a{
+    margin: 0 10px
+}

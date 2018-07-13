@@ -6,15 +6,22 @@
     <!--
     <p>Form value: {{ myForm.value | json }}</p>-->
     <!-- {food: 'lamb' } -->
-    <a href="/resultados">
-        Ver todos los resultados
-    </a>
+    <mat-toolbar color="" class="toolbar">
+        <span>Navegación</span>
+        <a href="/home" mat-raised-button>
+            Nueva encuesta
+        </a>
+        <a href="/resultados" mat-raised-button>
+            Ver resultados
+        </a>
+    </mat-toolbar>
+
     <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
         <!--<app-datos></app-datos>-->
 
         <div class="seccion">
             <mat-form-field>
-                <input matInput formControlName="sucursal" placeholder="XX Personas en la fila">
+                <input matInput formControlName="sucursal" placeholder="Sucursal">
             </mat-form-field>
         </div>
         <div class="seccion">
