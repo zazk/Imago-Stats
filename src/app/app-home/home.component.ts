@@ -83,6 +83,7 @@ export class HomeComponent implements OnInit {
           checked: false
         }
       ],
+      sucursal: '',
       pv_recargaMinima: 0,
       pv_llegadaPuntoVenta: 0,
       pv_minutosEspera: 0,

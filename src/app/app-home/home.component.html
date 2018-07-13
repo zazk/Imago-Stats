@@ -10,7 +10,14 @@
         Ver todos los resultados
     </a>
     <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
-        <app-datos></app-datos>
+        <!--<app-datos></app-datos>-->
+        <div class="datos">
+            <form class="datos__form">
+                <mat-form-field class="datos__form_input fw">
+                    <input matInput placeholder="Sucursal" formControlName="sucursal">
+                </mat-form-field>
+            </form>
+        </div>
         <div class="seccion">
             <mat-toolbar color="primary">
                 <span>
