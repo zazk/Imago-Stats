@@ -6,24 +6,126 @@
   </mat-toolbar>
   <div *ngIf="datas?.length > 0;else noDatas">
     <div class="table-container" *ngFor="let data of datas" class="collection">
-      <h2>
-        Cliente anónimo - {{data.id}}
-      </h2>
       <table class="">
-        <tr>
-          <th>
-            Punto de venta
-          </th>
-          <td>
-            Calificación: {{ data.puntoVenta }}
-          </td>
-        </tr>
         <tr>
           <th>
             Recarga Minima
           </th>
           <td>
-            Calificación: {{ data.recargaMinima }}
+            {{ data.pv_recargaMinima }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Llegada a Punto de venta
+          </th>
+          <td>
+            {{ data.pv_llegadaPuntoVenta }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Al llegar a la caja tuve que esperar xx minutos
+          </th>
+          <td>
+            {{ data.pv_minutosEspera }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Además de mi habían xx personas en la fila
+          </th>
+          <td>
+            {{ data.pv_personasFila }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Calidad de la atención en caja
+          </th>
+          <td>
+            {{ data.pv_calidadAtencion }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Venta sugestiva: Impulsación de ventas y promociones
+          </th>
+          <td>
+            {{ data.pv_ventaSugestiva }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Al salir del punto de venta
+          </th>
+          <td>
+            {{ data.pv_salida }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Al salir del punto de venta
+          </th>
+          <td>
+            {{ data.es_aparienciaHombres }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Al salir del punto de venta
+          </th>
+          <td>
+            {{ data.es_aparienciaMujeres }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Al salir del punto de venta
+          </th>
+          <td>
+            {{ data.es_actitudPersonal }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Al salir del punto de venta
+          </th>
+          <td>
+            {{ data.es_asesoriaAtencionJuegos }}
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            Comentario de experiencia
+          </th>
+          <td>
+            {{ data.com_experiencia }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Comentario de unidades
+          </th>
+          <td>
+            {{ data.com_unidades }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Comentario de operatividad
+          </th>
+          <td>
+            {{ data.com_operatividad }}
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Comentario de canje
+          </th>
+          <td>
+            {{ data.com_canje }}
           </td>
         </tr>
 

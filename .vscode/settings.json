@@ -18,6 +18,6 @@
   "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
   "[sql]": {},
   "editor.formatOnSave": true,
-  "workbench.colorTheme": "Default Light+",
+  "workbench.colorTheme": "Visual Studio Dark",
   "prettier.singleQuote": true
 }
