@@ -1,6 +1,6 @@
 {
   "window.zoomLevel": 0,
-  "editor.fontSize": 11,
+  "editor.fontSize": 12,
   "gitlens.keymap": "alternate",
   "dart.flutterSdkPath": "/Users/user/Works/flutter",
   "gitlens.advanced.messages": {
@@ -15,9 +15,10 @@
   },
   "git.autofetch": true,
   "gitlens.historyExplorer.enabled": true,
-  "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace",
+  "editor.fontFamily":
+    "Operator Mono, Consolas,Monaco, Menlo, 'Courier New', monospace",
   "[sql]": {},
   "editor.formatOnSave": true,
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Monokai",
   "prettier.singleQuote": true
 }

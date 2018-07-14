@@ -1,51 +1,52 @@
-.main-container{
-    margin: auto;
-    max-width: 1024px;
-    font-family: 'Open Sans', sans-serif;;
+.main-container {
+  margin: auto;
+  max-width: 1024px;
+  font-family: 'Open Sans', sans-serif;
 }
-.mat-toolbar.mat-primary{
-    margin: 40px 0 20px 0;
-    font-size: 16px;
-    white-space: normal;
-    line-height: 1.4;
+.mat-toolbar.mat-primary {
+  margin: 40px 0 20px 0;
+  font-size: 16px;
+  white-space: normal;
+  line-height: 1.4;
 }
-.questions,.condicionantes{
-    margin: 0;
-    padding: 10px 20px 25px;
+.questions,
+.condicionantes {
+  margin: 0;
+  padding: 10px 20px 25px;
 }
-.condicionantes{
-    background:#EEE;
+.condicionantes {
+  background: #eee;
 }
-.option-respuesta{
-    margin: 10px 0;
-    white-space: normal;
+.option-respuesta {
+  margin: 10px 0;
+  white-space: normal;
 }
-.option-respuesta > label{
-    margin: 10px 0;
+.option-respuesta > label {
+  margin: 10px 0;
 }
-.mat-form-field{
-    width: 100%;
+.mat-form-field {
+  width: 100%;
 }
-.mat-radio-button span{
-    white-space: normal;
+.mat-radio-button span {
+  white-space: normal;
 }
-.mat-checkbox span{
-    white-space: normal;
+.mat-checkbox span {
+  white-space: normal;
 }
-.text-details{
-    font-size: 16px;
+.text-details {
+  font-size: 16px;
 }
-.center{
-    text-align: center;
+.center {
+  text-align: center;
 }
-.toolbar{
-    margin-bottom: 20px;
+.toolbar {
+  margin-bottom: 20px;
 }
-.toolbar a{
-    margin: 0 10px
+.toolbar a {
+  margin: 0 10px;
 }
-.datos{
-    margin: 0;
-    padding: 10px 5px 25px;
-    font-size: 20px;
+.datos {
+  margin: 0;
+  padding: 10px 5px 25px;
+  font-size: 20px;
 }

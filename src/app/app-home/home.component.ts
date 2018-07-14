@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Data } from '../models/data';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
+import { unidadadesNegocio, incidenciasLocal } from '../models/unidades';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,13 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   data = new Data();
   form: FormGroup;
-
-  constructor(public dataService: DataService, fb: FormBuilder, private router: Router) {
+  public unidades = unidadadesNegocio;
+  public incidencias = incidenciasLocal;
+  constructor(
+    public dataService: DataService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.form = fb.group({
       puntoVenta: 0,
       recargaMinima: 0,
@@ -22,68 +28,9 @@ export class HomeComponent implements OnInit {
       recepcion: '',
       experiencia: '',
       unidades: '',
-      unidadesnegocio: [
-        {
-          title: '*Happy Birthday (área de cumpleaños)',
-          value: 1,
-          checked: false
-        },
-        {
-          title: '*Happy Kids',
-          value: 2,
-          checked: false
-        },
-        {
-          title: '*Happy Divas',
-          value: 3,
-          checked: false
-        }
-      ],
-      incidencias: [
-        {
-          title: 'Paredes manchadas',
-          value: 1,
-          checked: false
-        },
-        {
-          title: 'Pisos sucios o con basura.',
-          value: 2,
-          checked: false
-        },
-        {
-          title: 'Máquinas sucias/en mal estado',
-          value: 3,
-          checked: false
-        },
-        {
-          title: 'Mala iluminación.',
-          value: 3,
-          checked: false
-        },
-        {
-          title:
-            'Canje no está surtido con productos de diferente valor en tickets.',
-          value: 3,
-          checked: false
-        },
-        {
-          title:
-            'Happy Sweet: Sin precios puestos o no está surtido de productos como: pop corn, churros, hotdogs).',
-          value: 3,
-          checked: false
-        },
-        {
-          title: 'Local no tiene señaletica de seguridad.',
-          value: 3,
-          checked: false
-        },
-        {
-          title:
-            'Otros (desperdicios, cajas, bolsas, equipos de limpieza, etc.arrinconados por el local)',
-          value: 3,
-          checked: false
-        }
-      ],
+      unidadescheck: null,
+      unidadesnegocio: this.buildCheckboxes(unidadadesNegocio),
+      incidencias: this.buildCheckboxes(incidenciasLocal),
       sucursal: '',
       pv_recargaMinima: 0,
       pv_llegadaPuntoVenta: 0,
@@ -135,22 +82,42 @@ export class HomeComponent implements OnInit {
       com_operatividad: ''
     });
   }
-  images = [{ value: 'word1.jpg' }, { value: 'word2.jpg' }, { value: '' }];
-
-  add() {
-    this.images.push({ value: '' });
-  }
   ngOnInit() {
     this.dataService.getDatas().subscribe(datas => {
       console.log(datas);
     });
   }
+  get unidadesnegocio(): FormArray {
+    return this.form.get('unidadesnegocio') as FormArray;
+  }
+  get incidenciaslocal(): FormArray {
+    return this.form.get('incidencias') as FormArray;
+  }
+
+  buildCheckboxes(objs: any[]): FormArray {
+    const arr = objs.map(skill => {
+      return this.fb.control(skill.checked);
+    });
+    return this.fb.array(arr);
+  }
+
+  buildParam(param: any[], arr: any[]) {
+    return param.map((checked, i) => ({
+      id: arr[i].value,
+      selected: checked
+    }));
+  }
   onSubmit(form: any) {
-    console.log('test', form.value);
-    this.dataService.setDatas(form.value).subscribe(r => {
+    const { unidadesnegocio, incidencias } = form.value;
+    console.log(form.value, form.value['unidades']);
+    const obj = Object.assign({}, form.value, {
+      unidadesnegocio: this.buildParam(unidadesnegocio, this.unidades),
+      incidencias: this.buildParam(incidencias, this.incidencias)
+    });
+    this.dataService.setDatas(obj).subscribe(r => {
       console.log('R', r);
       this.router.navigate(['/pull-saved']);
     });
   }
-  onFileChange(event: any) { }
+  onFileChange(event: any) {}
 }
