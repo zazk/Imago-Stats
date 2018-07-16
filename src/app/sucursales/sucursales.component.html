@@ -1,11 +1,16 @@
 <div class="container">
-  <div class="sucursales">
-    <div class="sucursal-collection">
+  <div *ngIf="sucursales?.length > 0;else noSucursales" class="sucursales">
+    <div class="sucursal-collection" *ngFor="let sucursal of sucursales">
       <div class="sucursal">
-        jeje
+        {{ sucursal.nombre }}
       </div>
     </div>
   </div>
+  <ng-template #noSucursales>
+    <h5>
+      Aun no se ha registrado ninguna sucursal
+    </h5>
+  </ng-template>
   <div class="add-sucursales">
     <p>
       Agregar sucursales

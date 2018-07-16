@@ -12,7 +12,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 })
 export class SucursalesComponent implements OnInit {
 
-  datas: any[];
+  sucursales: any[];
   constructor(
     public sucursalesService: SucursalesService,
     private fb: FormBuilder,
@@ -20,8 +20,8 @@ export class SucursalesComponent implements OnInit {
     private afStorage: AngularFireStorage) { }
 
   ngOnInit() {
-    this.sucursalesService.getSucursales().subscribe(datas => {
-      console.log(datas);
+    this.sucursalesService.getSucursales().subscribe(sucursales => {
+      this.sucursales = sucursales;
     });
   }
 
