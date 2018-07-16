@@ -15,14 +15,11 @@ import { map } from '@firebase/util';
 export class HomeComponent implements OnInit {
   data = new Data();
   form: FormGroup;
-<<<<<<< HEAD
   date = this.catchDate();
   now = this.catchTime();
-=======
   ref: any;
   task: any;
   uploadProgress: any;
->>>>>>> 4c8963c2bfca9bd33563bf6395815dba59b98bb4
   public unidades = unidadadesNegocio;
   public incidencias = incidenciasLocal;
   constructor(
