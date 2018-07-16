@@ -120,26 +120,12 @@
             </tr>
             <tr>
               <th>
-                Happy Bday
+                Unidades de negocio
               </th>
               <td>
-                {{ data.un_happyBirthday }}
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Happy kids
-              </th>
-              <td>
-                {{ data.un_happyKids }}
-              </td>
-            </tr>
-            <tr>
-              <th>
-                Happy divas
-              </th>
-              <td>
-                {{ data.un_happyDivas }}
+                <div class="list" *ngFor="let u of data.unidadesnegocio">
+                  Opt: {{u.id}}
+                </div>
               </td>
             </tr>
             <tr>
@@ -251,7 +237,9 @@
                 Lista de incidentes
               </th>
               <td>
-
+                <div class="list" *ngFor="let incidencias of data.incidencias">
+                  Opt: {{incidencias.id}}
+                </div>
               </td>
             </tr>
             <tr>
