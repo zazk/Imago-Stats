@@ -860,12 +860,10 @@
             <div class="questions">
                 <div class="question">
                     <p>
-                        Fecha de Realiación
+                        Fecha de Realización
                     </p>
                     <mat-form-field>
-                        <input matInput [matDatepicker]="picker" placeholder="Fecha de Hoy">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <input matInput formControlName="fe_realizacion" placeholder="Hoy" disabled="true">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -873,16 +871,15 @@
                         Hora de Salida
                     </p>
                     <mat-form-field>
-                        <input matInput formControlName="" placeholder="xx/xx/xx 00:00">
+                        <input matInput formControlName="fe_horaEntrada" placeholder="00:00" disabled="true">
                     </mat-form-field>
-                    <input id="appt-time" type="time" name="appt-time" value="13:30">
                 </div>
                 <div class="question">
                     <p>
                         Hora de Entrada
                     </p>
                     <mat-form-field>
-                        <input matInput formControlName="" placeholder="xx/xx/xx 00:00">
+                        <input matInput formControlName="fe_horaSalida" placeholder="00:00" disabled="true">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -890,7 +887,7 @@
                         Local
                     </p>
                     <mat-form-field>
-                        <input matInput formControlName="" placeholder="Local">
+                        <input matInput formControlName="fe_local" placeholder="Local">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -898,7 +895,7 @@
                         Nombre del evaluador
                     </p>
                     <mat-form-field>
-                        <input matInput formControlName="" placeholder="Nombre Apellido">
+                        <input matInput formControlName="fe_evaluador" placeholder="Nombre Apellido">
                     </mat-form-field>
                 </div>
             </div>
@@ -915,7 +912,7 @@
                         Nombre de personal de caja
                     </p>
                     <mat-form-field>
-                        <input matInput formControlName="" placeholder="Nombre de personal de caja">
+                        <input matInput formControlName="col_nomCaja" placeholder="Nombre de personal de caja">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -923,7 +920,7 @@
                         Descripción del personal de caja
                     </p>
                     <mat-form-field>
-                        <textarea formControlName="" matInput placeholder="Descripción de personal de caja"></textarea>
+                        <textarea formControlName="col_descCaja" matInput placeholder="Descripción de personal de caja"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -931,7 +928,7 @@
                         Nombre de operador de juegos
                     </p>
                     <mat-form-field>
-                        <input matInput formControlName="" placeholder="Nombre de operador de juegos">
+                        <input matInput formControlName="col_nomJuegos" placeholder="Nombre de operador de juegos">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -939,7 +936,7 @@
                         Descripción del operador de juegos
                     </p>
                     <mat-form-field>
-                        <textarea formControlName="" matInput placeholder="Descripción de operador de juegos"></textarea>
+                        <textarea formControlName="col_descJuegos" matInput placeholder="Descripción de operador de juegos"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -947,7 +944,7 @@
                         Nombre de informante de cumpleaños
                     </p>
                     <mat-form-field>
-                        <input matInput formControlName="" placeholder="Nombre de informante de cumpleaños">
+                        <input matInput formControlName="col_nomCumple" placeholder="Nombre de informante de cumpleaños">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -955,7 +952,7 @@
                         Descripción de informante de cumpleaños
                     </p>
                     <mat-form-field>
-                        <textarea formControlName="" matInput placeholder="Descripción de informante de cumpleaños"></textarea>
+                        <textarea formControlName="col_descCumple" matInput placeholder="Descripción de informante de cumpleaños"></textarea>
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -963,7 +960,7 @@
                         Nombre de personal de canje
                     </p>
                     <mat-form-field>
-                        <input matInput formControlName="" placeholder="Nombre de personal de canje">
+                        <input matInput formControlName="col_nomCanje" placeholder="Nombre de personal de canje">
                     </mat-form-field>
                 </div>
                 <div class="question">
@@ -971,7 +968,7 @@
                         Descripción de personal de canje
                     </p>
                     <mat-form-field>
-                        <textarea formControlName="" matInput placeholder="Descripción de personal de canje"></textarea>
+                        <textarea formControlName="col_descCanje" matInput placeholder="Descripción de personal de canje"></textarea>
                     </mat-form-field>
                 </div>
             </div>

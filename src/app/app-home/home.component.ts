@@ -13,6 +13,8 @@ import { unidadadesNegocio, incidenciasLocal } from '../models/unidades';
 export class HomeComponent implements OnInit {
   data = new Data();
   form: FormGroup;
+  date = this.catchDate();
+  now = this.catchTime();
   public unidades = unidadadesNegocio;
   public incidencias = incidenciasLocal;
   constructor(
@@ -83,7 +85,22 @@ export class HomeComponent implements OnInit {
       com_recepcion: '',
       com_experiencia: '',
       com_unidades: '',
-      com_operatividad: ''
+      com_operatividad: '',
+
+      fe_realizacion: this.date,
+      fe_horaEntrada: this.now,
+      fe_horaSalida: '',
+      fe_local: '',
+      fe_evaluador: '',
+
+      col_nomCaja: '',
+      col_descCaja: '',
+      col_nomJuegos: '',
+      col_descJuegos: '',
+      col_nomCumple: '',
+      col_descCumple: '',
+      col_nomCanje: '',
+      col_descCanje: '',
     });
   }
   ngOnInit() {
@@ -111,6 +128,22 @@ export class HomeComponent implements OnInit {
       selected: checked
     }));
   }
+
+  catchTime() {
+    let d = new Date();
+    let n = d.getTime();
+    return n;
+  }
+  catchDate() {
+    let d = new Date();
+    let dd = d.getDate();
+    let mm = d.getMonth() + 1; //January is 0!
+    let yyyy = d.getFullYear();
+    let today = '';
+    today = mm + '/' + dd + '/' + yyyy;
+    return today;
+  }
+
   onSubmit(form: any) {
     const { unidadesnegocio, incidencias } = form.value;
     console.log(form.value, form.value['unidades']);
