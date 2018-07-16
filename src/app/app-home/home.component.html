@@ -612,7 +612,7 @@
                             Las máquinas/juegos sucios o mal presentados fueron:
                         </P>
                         <mat-form-field>
-                            <input matInput formControlName="oll_listaMaqSucias" placeholder="Lista de Máquinas">
+                            <textarea formControlName="oll_listaMaqSucias" matInput placeholder="Lista de máquinas sucias o mal presentadas."></textarea>
                         </mat-form-field>
                     </div>
                 </mat-radio-group>
@@ -640,7 +640,7 @@
                     <div class="option-respuesta">
                         <div class="otros">
                             <mat-form-field>
-                                <textarea matInput formControlName="oll_incListaOtros" placeholder="Lista de cosas"></textarea>
+                                <textarea matInput formControlName="oll_incListaOtros" placeholder="Lista de otras incidencias"></textarea>
                             </mat-form-field>
                         </div>
                     </div>
@@ -847,6 +847,131 @@
                 <div class="question">
                     <mat-form-field>
                         <textarea formControlName="com_canje" matInput placeholder="CANJE"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="seccion">
+            <mat-toolbar color="primary">
+                <span>
+                    FECHA
+                </span>
+            </mat-toolbar>
+            <div class="questions">
+                <div class="question">
+                    <p>
+                        Fecha de Realiación
+                    </p>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Fecha de Hoy">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Hora de Salida
+                    </p>
+                    <mat-form-field>
+                        <input matInput formControlName="" placeholder="xx/xx/xx 00:00">
+                    </mat-form-field>
+                    <input id="appt-time" type="time" name="appt-time" value="13:30">
+                </div>
+                <div class="question">
+                    <p>
+                        Hora de Entrada
+                    </p>
+                    <mat-form-field>
+                        <input matInput formControlName="" placeholder="xx/xx/xx 00:00">
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Local
+                    </p>
+                    <mat-form-field>
+                        <input matInput formControlName="" placeholder="Local">
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Nombre del evaluador
+                    </p>
+                    <mat-form-field>
+                        <input matInput formControlName="" placeholder="Nombre Apellido">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="seccion">
+            <mat-toolbar color="primary">
+                <span>
+                    COLABORADORES QUE LO ATENDIERON
+                </span>
+            </mat-toolbar>
+            <div class="questions">
+                <div class="question">
+                    <p>
+                        Nombre de personal de caja
+                    </p>
+                    <mat-form-field>
+                        <input matInput formControlName="" placeholder="Nombre de personal de caja">
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Descripción del personal de caja
+                    </p>
+                    <mat-form-field>
+                        <textarea formControlName="" matInput placeholder="Descripción de personal de caja"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Nombre de operador de juegos
+                    </p>
+                    <mat-form-field>
+                        <input matInput formControlName="" placeholder="Nombre de operador de juegos">
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Descripción del operador de juegos
+                    </p>
+                    <mat-form-field>
+                        <textarea formControlName="" matInput placeholder="Descripción de operador de juegos"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Nombre de informante de cumpleaños
+                    </p>
+                    <mat-form-field>
+                        <input matInput formControlName="" placeholder="Nombre de informante de cumpleaños">
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Descripción de informante de cumpleaños
+                    </p>
+                    <mat-form-field>
+                        <textarea formControlName="" matInput placeholder="Descripción de informante de cumpleaños"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Nombre de personal de canje
+                    </p>
+                    <mat-form-field>
+                        <input matInput formControlName="" placeholder="Nombre de personal de canje">
+                    </mat-form-field>
+                </div>
+                <div class="question">
+                    <p>
+                        Descripción de personal de canje
+                    </p>
+                    <mat-form-field>
+                        <textarea formControlName="" matInput placeholder="Descripción de personal de canje"></textarea>
                     </mat-form-field>
                 </div>
             </div>

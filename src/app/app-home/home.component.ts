@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
       oll_listaMaqMal: '',
       oll_countMaqSucias: 0,
       oll_numMaqSucias: 0,
-      oll_listaMaqSucias: 0,
+      oll_listaMaqSucias: '',
       /*
       lp_incParedesManchadas: false,
       lp_incPisoSucio: false,
