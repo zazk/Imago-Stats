@@ -238,7 +238,12 @@
               </th>
               <td>
                 <div class="list" *ngFor="let incidencias of data.incidencias">
-                  Opt: {{incidencias.id}}
+                  <p>
+                    Opt: {{incidencias.id}}
+                  </p>
+                  <p>
+                    Rslt: {{incidencias.selected}}
+                  </p>
                 </div>
               </td>
             </tr>

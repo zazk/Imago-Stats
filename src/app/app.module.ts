@@ -23,8 +23,10 @@ import {
 
 import { environment } from '../environments/environment';
 import { DataService } from './services/data.service';
+import { SucursalesService } from './services/sucursales.service';
 import { PullSavedComponent } from './pull-saved/pull-saved.component';
 import { ResultadosSucursalesComponent } from './resultados-sucursales/resultados-sucursales.component';
+import { SucursalesComponent } from './sucursales/sucursales.component';
 
 const AppRouter: Routes = [
   {
@@ -47,6 +49,10 @@ const AppRouter: Routes = [
   {
     path: 'resultados-sucursales',
     component: ResultadosSucursalesComponent
+  },
+  {
+    path: 'registrar-sucursales',
+    component: SucursalesComponent
   }
 ];
 
@@ -61,7 +67,8 @@ const AppRouter: Routes = [
     PreguntaComponent,
     RespuestaComponent,
     PullSavedComponent,
-    ResultadosSucursalesComponent
+    ResultadosSucursalesComponent,
+    SucursalesComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +82,7 @@ const AppRouter: Routes = [
     RouterModule.forRoot(AppRouter, { enableTracing: true }),
     CdkTableModule
   ],
-  providers: [DataService],
+  providers: [DataService, SucursalesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
