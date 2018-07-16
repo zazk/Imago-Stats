@@ -4,6 +4,8 @@ import { Data } from '../models/data';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { unidadadesNegocio, incidenciasLocal } from '../models/unidades';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { map } from '@firebase/util';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +15,16 @@ import { unidadadesNegocio, incidenciasLocal } from '../models/unidades';
 export class HomeComponent implements OnInit {
   data = new Data();
   form: FormGroup;
+  ref: any;
+  task: any;
+  uploadProgress: any;
   public unidades = unidadadesNegocio;
   public incidencias = incidenciasLocal;
   constructor(
     public dataService: DataService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private afStorage: AngularFireStorage
   ) {
     this.form = fb.group({
       puntoVenta: 0,
@@ -83,7 +89,19 @@ export class HomeComponent implements OnInit {
       com_recepcion: '',
       com_experiencia: '',
       com_unidades: '',
-      com_operatividad: ''
+      com_operatividad: '',
+      hora_salida: '',
+      hora_entrada: '',
+      local: '',
+      nombre_evaluador: '',
+      nombre_personal: '',
+      descripcion_personal: '',
+      nombre_operador_juegos: '',
+      descripcion_operador_juegos: '',
+      nombre_informante: '',
+      descripcion_informante: '',
+      nombre_personal_canje: '',
+      descripcion_personal_canje: ''
     });
   }
   ngOnInit() {
@@ -123,5 +141,18 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/pull-saved']);
     });
   }
-  onFileChange(event: any) { }
+  onFileChange(event: any) {}
+  public upload(event) {
+    // create a random id
+    const randomId = Math.random()
+      .toString(36)
+      .substring(2);
+    // create a reference to the storage bucket location
+    this.ref = this.afStorage.ref(randomId);
+    // the put method creates an AngularFireUploadTask
+    // and kicks off the upload
+    this.task = this.ref.put(event.target.files[0]);
+
+    this.uploadProgress = this.task.snapshotChanges();
+  }
 }
