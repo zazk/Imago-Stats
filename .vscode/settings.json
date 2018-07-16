@@ -19,6 +19,5 @@
     "Operator Mono, Consolas,Monaco, Menlo, 'Courier New', monospace",
   "[sql]": {},
   "editor.formatOnSave": true,
-  "workbench.colorTheme": "Monokai",
   "prettier.singleQuote": true
 }

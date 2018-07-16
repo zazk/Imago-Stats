@@ -4,6 +4,8 @@ import { Data } from '../models/data';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { unidadadesNegocio, incidenciasLocal } from '../models/unidades';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { map } from '@firebase/util';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +15,21 @@ import { unidadadesNegocio, incidenciasLocal } from '../models/unidades';
 export class HomeComponent implements OnInit {
   data = new Data();
   form: FormGroup;
+<<<<<<< HEAD
   date = this.catchDate();
   now = this.catchTime();
+=======
+  ref: any;
+  task: any;
+  uploadProgress: any;
+>>>>>>> 4c8963c2bfca9bd33563bf6395815dba59b98bb4
   public unidades = unidadadesNegocio;
   public incidencias = incidenciasLocal;
   constructor(
     public dataService: DataService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private afStorage: AngularFireStorage
   ) {
     this.form = fb.group({
       puntoVenta: 0,
@@ -157,4 +166,17 @@ export class HomeComponent implements OnInit {
     });
   }
   onFileChange(event: any) { }
+  public upload(event) {
+    // create a random id
+    const randomId = Math.random()
+      .toString(36)
+      .substring(2);
+    // create a reference to the storage bucket location
+    this.ref = this.afStorage.ref(randomId);
+    // the put method creates an AngularFireUploadTask
+    // and kicks off the upload
+    this.task = this.ref.put(event.target.files[0]);
+
+    this.uploadProgress = this.task.snapshotChanges();
+  }
 }
