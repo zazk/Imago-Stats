@@ -51,11 +51,14 @@ export class HomeComponent implements OnInit {
       un_happyKidsPresentacion: 0,
       un_happyBirthdayPresentacion: 0,
       un_happyDivasPresentacion: 0,
-      oll_numMaquinasMal: 0,
-      oll_numMaquinasMalLetrero: 0,
-      oll_listaMaquinasMal: '',
-      lp_numMaqSucias: 0,
-      lp_listaMaqSucias: 0,
+      oll_countMaqMal: 0,
+      oll_numMaqMal: 0,
+      oll_countMaqMalLetrero: 0,
+      oll_numMaqMalLetrero: 0,
+      oll_listaMaqMal: '',
+      oll_countMaqSucias: 0,
+      oll_numMaqSucias: 0,
+      oll_listaMaqSucias: 0,
       /*
       lp_incParedesManchadas: false,
       lp_incPisoSucio: false,
@@ -66,10 +69,11 @@ export class HomeComponent implements OnInit {
       lp_incNoSenhal: false,
       lp_incOtros: false,
       */
-      lp_incListaOtros: '',
-      lp_incProRemodelacion: 0,
-      lp_incProRemodelacionSenhal: 0,
-      lp_incOperadoresJuegos: 0,
+      oll_numInc: 0,
+      oll_incListaOtros: '',
+      oll_incProRemodelacion: 0,
+      oll_incProRemodelacionSenhal: 0,
+      oll_incOperadoresJuegos: 0,
       c_calidadAtencion: 0,
       c_canjeEspera: 0,
       c_canjeFila: 0,
@@ -119,5 +123,5 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/pull-saved']);
     });
   }
-  onFileChange(event: any) {}
+  onFileChange(event: any) { }
 }
