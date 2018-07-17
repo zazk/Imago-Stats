@@ -1,0 +1,20 @@
+.main-container{
+    max-width: 1024px;
+    margin: auto;
+}
+.add-sucursales{
+    border: 1px solid #666;
+    padding: 20px;
+}
+.mat-toolbar.mat-primary {
+  margin: 40px 0 20px 0;
+  font-size: 16px;
+  white-space: normal;
+  line-height: 1.4;
+}
+.toolbar {
+  margin-bottom: 20px;
+}
+.toolbar a {
+  margin: 0 10px;
+}

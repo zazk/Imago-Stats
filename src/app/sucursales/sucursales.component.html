@@ -1,27 +1,46 @@
-<div class="container">
-  <div *ngIf="sucursales?.length > 0;else noSucursales" class="sucursales">
-    <div class="sucursal-collection" *ngFor="let sucursal of sucursales">
-      <div class="sucursal">
-        {{ sucursal.nombre }}
+<div class="main-container">
+  <app-header></app-header>
+  <mat-toolbar color="" class="toolbar">
+    <span></span>
+    <a href="/home" mat-raised-button>
+      + Nueva encuesta
+    </a>
+    <a href="/resultados" mat-raised-button>
+      Ver resultados
+    </a>
+    <a href="/resultados-sucursales" mat-raised-button>
+      Ver resultados por sucursal
+    </a>
+  </mat-toolbar>
+  <div class="table-container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div fxFlex="50%">
+      <div *ngIf="sucursales?.length > 0;else noSucursales" class="sucursales">
+        <ul class="sucursal-collection" *ngFor="let sucursal of sucursales">
+          <li class="sucursal">
+            {{ sucursal.nombre }}
+          </li>
+        </ul>
+      </div>
+      <ng-template #noSucursales>
+        <h5>
+          Aun no se ha registrado ninguna sucursal
+        </h5>
+      </ng-template>
+    </div>
+    <div fxFlex="50%">
+      <div class="add-sucursales">
+        <p>
+          Agregar nueva sucursal
+        </p>
+        <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
+          <mat-form-field>
+            <input matInput placeholder="Nueva sucursal" formControlName="nombre">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" class="submit-btn" type="submit">Agregar sucursal</button>
+          </div>
+        </form>
       </div>
     </div>
-  </div>
-  <ng-template #noSucursales>
-    <h5>
-      Aun no se ha registrado ninguna sucursal
-    </h5>
-  </ng-template>
-  <div class="add-sucursales">
-    <p>
-      Agregar sucursales
-    </p>
-    <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
-      <mat-form-field>
-        <input matInput placeholder="Nueva sucursal" formControlName="nombre">
-      </mat-form-field>
-      <div>
-        <button mat-raised-button color="primary" class="submit-btn" type="submit">Agregar sucursal</button>
-      </div>
-    </form>
   </div>
 </div>
