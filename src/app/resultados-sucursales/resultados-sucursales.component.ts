@@ -11,7 +11,6 @@ export class ResultadosSucursalesComponent implements OnInit {
   datas: any[];
   constructor(public dataService: DataService) { }
 
-
   ngOnInit() {
     this.dataService.getDatas().subscribe(datas => {
       this.datas = datas;
