@@ -24,8 +24,18 @@
 
         <div class="seccion datos">
             <mat-form-field>
-                <input matInput formControlName="sucursal" placeholder="Sucursal">
+                <mat-select placeholder="Sucursal" formControlName="sucursal">
+                    <mat-option *ngFor="let s of sucursales" [value]="s.nombre">
+                        {{s.nombre}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
+            <p class="text-message">
+                ¿No encuentras la sucursal que buscas?
+                <a href="/registrar-sucursales" target="_blank">
+                    Registra una nueva sucursal desde aquí
+                </a>
+            </p>
         </div>
         <div class="seccion">
             <mat-toolbar color="primary">

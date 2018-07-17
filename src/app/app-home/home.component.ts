@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { SucursalesService } from '../services/sucursales.service';
 import { Data } from '../models/data';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,6 +14,7 @@ import { map } from '@firebase/util';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  sucursales: any[];
   data = new Data();
   form: FormGroup;
   date = this.catchDate();
@@ -24,6 +26,7 @@ export class HomeComponent implements OnInit {
   public incidencias = incidenciasLocal;
   constructor(
     public dataService: DataService,
+    public sucursalesService: SucursalesService,
     private fb: FormBuilder,
     private router: Router,
     private afStorage: AngularFireStorage
@@ -112,6 +115,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.dataService.getDatas().subscribe(datas => {
       console.log(datas);
+    });
+    this.sucursalesService.getSucursales().subscribe(sucursales => {
+      console.log(sucursales);
+      this.sucursales = sucursales;
     });
   }
   get unidadesnegocio(): FormArray {
