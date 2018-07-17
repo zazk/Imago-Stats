@@ -8,33 +8,37 @@ import { forEach } from '@angular/router/src/utils/collection';
   styleUrls: ['./resultados-promedios.component.css']
 })
 export class ResultadosPromediosComponent implements OnInit {
-
-  avg: number;
+  avg: number = 0;
   datas: any[];
-  promedios: {
-    c_calidadAtencion: number;
-  };
-  constructor(public dataService: DataService) { }
+  prom: any;
+  constructor(public dataService: DataService) {
+    this.prom = {
+      c_calidadAtencion: 0,
+    };
+  }
 
   ngOnInit() {
-    let promedios = {};
+    let promedio = {};
     this.dataService.getDatas().subscribe(datas => {
       this.datas = datas;
-      let sum: number = 0;
-      let count: number = 0;
-      this.datas.forEach(function (d) {
-        sum = sum + d.c_calidadAtencion;
-        console.log(d.c_calidadAtencion);
-        count++;
-      });
-      this.avg = sum / count;
-      console.log("sum " + sum);
-      console.log("count " + count);
-      console.log(this.avg);
+      this.averageFirst();
     });
+  }
 
+  averageFirst() {
+    //Iniciar promedio
+    let sum: number = 0;
+    let count: number = 0;
+    this.datas.forEach(function (d) {
+      sum = sum + parseInt(d.c_calidadAtencion);
+      console.log(d.c_calidadAtencion);
+      count++;
+    });
+    this.prom.c_calidadAtencion = sum / count;
+    console.log("sum " + sum);
+    console.log("count " + count);
+    console.log(this.avg);
     //console.log(this.averagingThis([1, 3]));
-
   }
 
   averagingThis(nmbs: number[]) {
