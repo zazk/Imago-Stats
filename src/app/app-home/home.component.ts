@@ -32,8 +32,6 @@ export class HomeComponent implements OnInit {
     private afStorage: AngularFireStorage
   ) {
     this.form = fb.group({
-      puntoVenta: 0,
-      recargaMinima: 0,
       operatividad: '',
       canje: '',
       recepcion: '',
@@ -47,13 +45,13 @@ export class HomeComponent implements OnInit {
       pv_llegadaPuntoVenta: 0,
       pv_minutosEspera: 0,
       pv_personasFila: 0,
-      pv_calidadAtencion: '',
-      pv_ventaSugestiva: '',
-      pv_salida: '',
-      es_aparienciaHombres: '',
-      es_aparienciaMujeres: '',
-      es_actitudPersonal: '',
-      es_asesoriaAtencionJuegos: '',
+      pv_calidadAtencion: 0,
+      pv_ventaSugestiva: 0,
+      pv_salida: 0,
+      es_aparienciaHombres: 0,
+      es_aparienciaMujeres: 0,
+      es_actitudPersonal: 0,
+      es_asesoriaAtencionJuegos: 0,
       un_happyBirthday: false,
       un_happyKids: false,
       un_happyDivas: false,
@@ -64,22 +62,11 @@ export class HomeComponent implements OnInit {
       un_happyDivasPresentacion: 0,
       oll_countMaqMal: 0,
       oll_numMaqMal: 0,
-      oll_countMaqMalLetrero: 0,
       oll_numMaqMalLetrero: 0,
       oll_listaMaqMal: '',
       oll_countMaqSucias: 0,
       oll_numMaqSucias: 0,
       oll_listaMaqSucias: '',
-      /*
-      lp_incParedesManchadas: false,
-      lp_incPisoSucio: false,
-      lp_incMaqSucias: false,
-      lp_incMalaIluminacion: false,
-      lp_incCanjeNoSurtido: false,
-      lp_incNoPrecios: false,
-      lp_incNoSenhal: false,
-      lp_incOtros: false,
-      */
       oll_numInc: 0,
       oll_incListaOtros: '',
       oll_incProRemodelacion: 0,
@@ -109,7 +96,7 @@ export class HomeComponent implements OnInit {
       col_nomCumple: '',
       col_descCumple: '',
       col_nomCanje: '',
-      col_descCanje: '',
+      col_descCanje: ''
     });
   }
   ngOnInit() {
@@ -143,15 +130,15 @@ export class HomeComponent implements OnInit {
   }
 
   catchTime() {
-    let d = new Date();
-    let n = d.getTime();
+    const d = new Date();
+    const n = d.getTime();
     return n;
   }
   catchDate() {
-    let d = new Date();
-    let dd = d.getDate();
-    let mm = d.getMonth() + 1; //January is 0!
-    let yyyy = d.getFullYear();
+    const d = new Date();
+    const dd = d.getDate();
+    const mm = d.getMonth() + 1; //January is 0!
+    const yyyy = d.getFullYear();
     let today = '';
     today = mm + '/' + dd + '/' + yyyy;
     return today;
@@ -169,7 +156,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/pull-saved']);
     });
   }
-  onFileChange(event: any) { }
+  onFileChange(event: any) {}
   public upload(event) {
     // create a random id
     const randomId = Math.random()

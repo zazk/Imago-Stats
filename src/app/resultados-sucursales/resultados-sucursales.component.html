@@ -6,7 +6,7 @@
     </span>
   </mat-toolbar>
   <div *ngIf="datas?.length > 0;else noDatas">
-    <div class="clearfix" *ngFor="let data of datas" class="collection">
+    <div class="clearfix" class="collection">
       <div class="table-container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
         <div fxFlex="100%">
           <table class="">
@@ -85,11 +85,6 @@
                 </span>
               </th>
               <th>
-                <span title="Numero de maquinas mal con letrero">
-                  13
-                </span>
-              </th>
-              <th>
                 <span title="Maquinas sucias">
                   14
                 </span>
@@ -115,7 +110,7 @@
                 </span>
               </th>
             </tr>
-            <tr>
+            <tr *ngFor="let data of datas">
               <td>
                 {{ data.sucursal }}
               </td>
@@ -162,137 +157,81 @@
                 <!--12-->{{ data.un_happyDivasPresentacion }}
               </td>
               <td>
-                <!--13-->{{ data.oll_numMaqMalLetrero }}
+                <!--13-->{{ data.oll_countMaqMal }}
               </td>
               <td>
-                <!--14-->{{ data.oll_numMaqSucias }}
+                <!--14-->{{ data.oll_countMaqSucias }}
               </td>
               <td>
-                <!--15-->{{ data.oll_incProRemodelacion }}
+                <!--15-->{{ data.oll_incOperadoresJuegos }}
               </td>
               <td>
-                <!--16-->{{ data.oll_incOperadoresJuegos }}
+                <!--16-->{{ data.c_calidadAtencion }}
               </td>
               <td>
-                <!--17-->{{ data.c_calidadAtencion }}
-              </td>
-              <td>
-                <!--18-->{{ data.c_canjeSalida }}
+                <!--17-->{{ data.c_canjeSalida }}
               </td>
             </tr>
-
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="clearfix" class="collection totals">
-      <div class="table-container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
-        <div fxFlex="100%">
-          <table class="">
             <tr>
               <th>
                 SUCURSAL
               </th>
               <th>
-                <span title="Recarga Minima Total">
-                  {{this.sumas.c_calidadAtencion}}
-                </span>
+                <!--0-->{{ preguntas.pv_recargaMinima }}
               </th>
               <th>
-                <span title="Llegada a Punto de venta">
-
-                </span>
+                <!--1-->{{ preguntas.pv_llegadaPuntoVenta }}
               </th>
               <th>
-                <span title="Calidad de la atención en caja">
-
-                </span>
+                <!--2-->{{ preguntas.pv_calidadAtencion }}
               </th>
               <th>
-                <span title="Venta sugestiva: Impulsación de ventas y promociones">
-
-                </span>
+                <!--3-->{{ preguntas.pv_ventaSugestiva }}
               </th>
               <th>
-                <span title="Al salir del punto de venta">
-
-                </span>
+                <!--4-->{{ preguntas.pv_salida }}
               </th>
               <th>
-                <span title="Apariencia hombres">
-
-                </span>
+                <!--5.1-->{{ preguntas.es_aparienciaHombres }}
               </th>
               <th>
-                <span title="Apariencia mujeres">
-
-                </span>
+                <!--5.2-->{{ preguntas.es_aparienciaMujeres }}
               </th>
               <th>
-                <span title="Actitud personal">
-
-                </span>
+                <!--6-->{{ preguntas.es_actitudPersonal }}
               </th>
               <th>
-                <span title="Asesoria atención en juegos">
-
-                </span>
+                <!--7-->{{ preguntas.es_asesoriaAtencionJuegos }}
               </th>
               <th>
-                <span title="Happy Birthday presentación">
-
-                </span>
+                <!--8-->{{ preguntas.un_happyBirthdayPresentacion }}
               </th>
               <th>
-                <span title="Happy Birthday Atención">
-
-                </span>
+                <!--9-->{{ preguntas.un_happyBirthdayAtencion }}
               </th>
               <th>
-                <span title="Happy Birthday negociación">
-
-                </span>
+                <!--10-->{{ preguntas.un_happyBirthdayNegociacion }}
               </th>
               <th>
-                <span title="Happy Kids presentación">
-
-                </span>
+                <!--11-->{{ preguntas.un_happyKidsPresentacion }}
               </th>
               <th>
-                <span title="Happy Divas presentación">
-
-                </span>
+                <!--12-->{{ preguntas.un_happyDivasPresentacion }}
               </th>
               <th>
-                <span title="Numero de maquinas mal con letrero">
-
-                </span>
+                <!--13-->{{ preguntas.oll_countMaqMal }}
               </th>
               <th>
-                <span title="Maquinas sucias">
-
-                </span>
+                <!--14-->{{ preguntas.oll_countMaqSucias }}
               </th>
               <th>
-                <span title="Incidencias maquinas en remodelación">
-
-                </span>
+                <!--15-->{{ preguntas.oll_incOperadoresJuegos }}
               </th>
               <th>
-                <span title="Incidentes Operadores juegos mecanicos">
-
-                </span>
+                <!--16-->{{ preguntas.c_calidadAtencion }}
               </th>
               <th>
-                <span title="Calidad de atención">
-
-                </span>
-              </th>
-              <th>
-                <span title="Despedida en canje">
-
-                </span>
+                <!--17-->{{ preguntas.c_canjeSalida }}
               </th>
             </tr>
           </table>
