@@ -27,6 +27,7 @@ import { SucursalesService } from './services/sucursales.service';
 import { PullSavedComponent } from './pull-saved/pull-saved.component';
 import { ResultadosSucursalesComponent } from './resultados-sucursales/resultados-sucursales.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
+import { ResultadoSucursalComponent } from './resultado-sucursal/resultado-sucursal.component';
 
 const AppRouter: Routes = [
   {
@@ -53,7 +54,11 @@ const AppRouter: Routes = [
   {
     path: 'registrar-sucursales',
     component: SucursalesComponent
-  }
+  },
+  {
+    path: 'resultado-sucursal/:codigo',
+    component: ResultadoSucursalComponent,
+  },
 ];
 
 @NgModule({
@@ -69,6 +74,7 @@ const AppRouter: Routes = [
     PullSavedComponent,
     ResultadosSucursalesComponent,
     SucursalesComponent,
+    ResultadoSucursalComponent,
   ],
   imports: [
     BrowserModule,

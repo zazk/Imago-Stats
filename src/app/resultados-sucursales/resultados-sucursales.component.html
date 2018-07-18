@@ -115,7 +115,9 @@
             <tbody>
               <tr *ngFor="let data of datas">
                 <td>
-                  {{ data.sucursal }}
+                  <a href="/resultado-sucursal/{{ data.id }}">
+                    {{ data.sucursal }}
+                  </a>
                 </td>
                 <td>
                   <!--0-->{{ data.pv_recargaMinima }}
