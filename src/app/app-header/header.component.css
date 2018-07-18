@@ -10,3 +10,10 @@ h1{
 .toolbar a {
     margin: 0 10px;
 }
+.item{
+    margin: 5px 5px;
+}
+.bar-menu{
+    background: #ddd;
+    padding: 10px;
+}
