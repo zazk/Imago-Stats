@@ -1,3 +1,565 @@
-<p>
-  resultado-sucursal works!
-</p>
+<div class="main-container">
+  <!--App Servicio
+      <app-seccion></app-seccion>-->
+  <!-- RECEPCIÓN / ATENCIÓN EN CAJA -->
+  <app-header></app-header>
+
+  <div class="seccion datos">
+    <p class="text-message">
+      Sucursal
+    </p>
+    <p>
+      {{data.sucursal}}
+    </p>
+  </div>
+  <div class="seccion">
+    <mat-toolbar color="primary">
+      <span>
+        RECEPCIÓN / ATENCIÓN EN CAJA
+      </span>
+    </mat-toolbar>
+    <div class="condicionantes">
+      <h2>
+        <strong>*PREGUNTAR: ¿Cuánto cuesta la recarga mínima?</strong>
+      </h2>
+      <p>
+        {{data.pv_recargaMinima}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>1. Al llegar al punto de venta</strong>
+      </h2>
+      <p>
+        {{data.pv_llegadaPuntoVenta}}
+      </p>
+    </div>
+    <div class="questions">
+      <h3>
+        <strong>Al llegar a la caja tuve que esperar</strong>
+      </h3>
+      <p>
+        <strong>
+          {{data.pv_minutosEspera}}
+        </strong>
+        minutos
+      </p>
+    </div>
+    <div class="questions">
+      <h3>
+        <strong>Además de mi habían</strong>
+      </h3>
+      <p>
+        <strong>
+          {{data.pv_personasFila}}
+        </strong>
+        personas
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>2. Calidad de la atención en caja</strong>
+      </h2>
+      <p>
+        <strong>
+          {{data.pv_calidadAtencion}}
+        </strong>
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>
+          3. Venta sugestiva: Impulsación de ventas y promociones
+        </strong>
+      </h2>
+      <p>
+        {{data.pv_ventaSugestiva}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>4. Al salir del punto de venta</strong>
+      </h2>
+      <p>
+        {{data.pv_salida}}
+      </p>
+    </div>
+  </div>
+  <!--experiencia de servicio-->
+  <div class="seccion">
+    <mat-toolbar color="primary">
+      <span>
+        EXPERIENCIA DE SERVICIO
+      </span>
+    </mat-toolbar>
+    <div class="questions">
+      <h2>
+        <strong>5.1.Apariencia de los colaboradores:</strong>
+        <span>
+          HOMBRES
+        </span>
+      </h2>
+      <p>
+        {{data.es_aparienciaHombres}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>5.2.Apariencia de los colaboradores:</strong>
+        <span>
+          MUJERES
+        </span>
+      </h2>
+      <p>
+        {{data.es_aparienciaMujeres}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>6.Actitud personal:</strong>
+      </h2>
+      <p>
+        {{data.es_actitudPersonal}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong> 7.Asesoría en la atención de los juegos:
+        </strong>
+      </h2>
+      <p>
+        {{data.es_asesoriaAtencionJuegos}}
+      </p>
+    </div>
+  </div>
+  <!--unidades de negocio-->
+  <div class="seccion">
+    <mat-toolbar color="primary">
+      <span>
+        UNIDADES DE NEGOCIO
+      </span>
+    </mat-toolbar>
+    <div class="condicionantes">
+      <h2>
+        Este local cuenta con las siguientes unidades de negocio:
+      </h2>
+      <p>
+        <span class="list" *ngFor="let u of data.unidadesnegocio">
+          Opt: {{u.id}}
+          <br>
+        </span>
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>8. Área de cumpleaños Happy Bday</strong>
+      </h2>
+      <p>
+        {{data.un_happyBirthdayPresentacion}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>
+          9. Información sobre atención de cumpleaños:
+        </strong>
+      </h2>
+      <p>
+        {{data.un_happyBirthdayAtencion}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>
+          10. Negociación BDAY: Manejo de objeciones :
+        </strong>
+      </h2>
+      {{data.un_happyBirthdayNegociacion}}
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>11. Área de Happy Kids:
+          <span class="text-details">
+            <br> -Presencia de personal encargado.
+            <br> -Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+          </span>
+        </strong>
+      </h2>
+      {{data.un_happyKidsPresentacion}}
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>12. Área de Divas:
+          <span class="text-details">
+            <br> - Presencia de personal encargado.
+            <br> - Área muestra buena imagen y no supone ningún peligro para los menores usuarios.
+          </span>
+        </strong>
+      </h2>
+      <p>
+        {{data.un_happyDivasPresentacion}}
+      </p>
+    </div>
+
+  </div>
+  <!--Operativilidad del local y limpieza-->
+  <div class="seccion">
+    <mat-toolbar color="primary">
+      <span>
+        OPERATIVIDAD DEL LOCAL Y LIMPIEZA
+      </span>
+    </mat-toolbar>
+    <div class="questions">
+      <h2>
+        <strong>
+          13. Funcionamiento de Máquinas:
+        </strong>
+      </h2>
+      <p>
+        {{data.oll_countMaqMal}}
+      </p>
+      <div>
+        <div class="question">
+          <h3>
+            <strong>En el local habían</strong>
+          </h3>
+          <p>
+            <strong>
+              {{data.oll_numMaqMal}}
+            </strong>
+            Máquinas en mal estado
+          </p>
+        </div>
+        <div class="question">
+          <h3>
+            <strong>De los cuales tenían el letrero avisando que están fuera de servicio</strong>
+          </h3>
+          <p>
+            {{data.oll_numMaqMalLetrero}}
+          </p>
+        </div>
+      </div>
+      <div class="question">
+        <h3>
+          <strong>Éstas máquinas son:</strong>
+        </h3>
+        <p>
+          {{data.oll_listaMaqMal}}
+        </p>
+      </div>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>
+          14. Limpieza y presentación de máquinas
+        </strong>
+      </h2>
+      <p>
+        {{data.oll_countMaqSucias}}
+      </p>
+      <mat-radio-group class="radio-group">
+        <div class="question">
+          <h3>
+            <strong>En el local habían</strong>
+          </h3>
+          <p>
+            {{data.oll_numMaqSucias}}
+          </p>
+        </div>
+        <div class="question">
+          <p>
+            Las máquinas/juegos sucios o mal presentados fueron:
+          </p>
+          <p>
+            {{data.oll_listaMaqSucias}}
+          </p>
+        </div>
+      </mat-radio-group>
+    </div>
+    <div class="questions">
+      <h2>
+        15.INCIDENCIAS:
+      </h2>
+      <div class="">
+        <p class="list" *ngFor="let incidencias of data.incidencias">
+          <span>
+            Opt: {{incidencias.id}}
+          </span>
+          <br>
+          <span>
+            Rslt: {{incidencias.selected}}
+          </span>
+        </p>
+        <div class="question">
+          <h3>
+            <strong>Se encontraron:</strong>
+          </h3>
+          <p>
+            <strong>
+              {{data.oll_numInc}}
+            </strong>
+            Incidentes
+          </p>
+        </div>
+        <div class="option-respuesta">
+          <div class="otros">
+            <h3>
+              <strong>Otras incidencias</strong>
+            </h3>
+            <p>
+              {{data.oll_incListaOtros}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="condicionantes">
+      <h2>
+        <strong>
+          ¿El local estaba en procesos de remodelación?
+        </strong>
+      </h2>
+      <p>
+        {{data.oll_incProRemodelacion}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>
+          ¿Habían avisos/señalización de las mejoras de remodelación?
+        </strong>
+      </h2>
+      <p>
+        {{data.oll_incProRemodelacionSenhal}}
+      </p>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>16. Operadores de juegos mecánicos
+          <span class="text-details">
+            <br>-SEGURIDAD
+            <br>-Da las instrucciones de seguridad antes del juego.
+            <br>-Se encuentra en el centro de control durante la duración del juego.
+            <br>-RESPETA EL TALLÍMETRO
+          </span>
+        </strong>
+      </h2>
+      <p>
+        {{data.oll_incOperadoresJuegos}}
+      </p>
+    </div>
+  </div>
+  <div class="seccion">
+    <mat-toolbar color="primary">
+      <span>
+        CANJE
+      </span>
+    </mat-toolbar>
+    <div class="questions">
+      <h2>
+        <strong>
+          17. Calidad de atención
+        </strong>
+      </h2>
+      <p>
+        {{data.c_calidadAtencion}}
+      </p>
+      <div class="question">
+        <h3>
+          <strong>En canje tuve que esperar</strong>
+        </h3>
+        <p>
+          {{data.c_canjeEspera}}
+        </p>
+      </div>
+      <div class="question">
+        <h3>
+          <strong>Además de mi habían</strong>
+        </h3>
+        <p>
+          {{data.c_canjeFila}}
+        </p>
+      </div>
+    </div>
+    <div class="questions">
+      <h2>
+        <strong>18.- Despedida en canje
+        </strong>
+      </h2>
+      <p>
+        {{data.c_canjeSalida}}
+      </p>
+    </div>
+  </div>
+  <div class="seccion">
+    <mat-toolbar color="primary">
+      <span>
+        COMENTARIOS
+      </span>
+    </mat-toolbar>
+    <div class="questions">
+      <div class="question">
+        <h2>
+          <strong>RECEPCIÓN / ATENCIÓN EN CAJA</strong>
+        </h2>
+        <p>
+          {{data.c_canjeSalida}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          <strong>EXPERIENCIA DE SERVICIO</strong>
+        </h2>
+        <p>
+          {{data.com_experiencia}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          <strong>UNIDADES DE NEGOCIO</strong>
+        </h2>
+        <p>
+          {{data.com_unidades}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          <strong>OPERATIVIDAD DEL LOCAL Y LIMPIEZA</strong>
+        </h2>
+        <p>
+          {{data.com_operatividad}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          <strong>CANJE</strong>
+        </h2>
+        <p>
+          {{data.com_canje}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="seccion">
+    <mat-toolbar color="primary">
+      <span>
+        FECHA
+      </span>
+    </mat-toolbar>
+    <div class="questions">
+      <div class="question">
+        <h2>
+          <strong>Fecha de Realización</strong>
+        </h2>
+        <p>
+          {{data.fe_realizacion}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          <strong>Hora de Entrada</strong>
+        </h2>
+        <p>
+          {{data.fe_horaEntrada}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          <strong>Hora de Salida</strong>
+        </h2>
+        <p>
+          {{data.fe_horaSalida}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Local
+        </h2>
+        <p>
+          {{data.fe_local}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Nombre del evaluador
+        </h2>
+        <p>
+          {{data.fe_evaluador}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="seccion">
+    <mat-toolbar color="primary">
+      <span>
+        COLABORADORES QUE LO ATENDIERON
+      </span>
+    </mat-toolbar>
+    <div class="questions">
+      <div class="question">
+        <h2>
+          Nombre de personal de caja
+        </h2>
+        <p>
+          {{data.col_nomCaja}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Descripción del personal de caja
+        </h2>
+        <p>
+          {{data.col_descCaja}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Nombre de operador de juegos
+        </h2>
+        <p>
+          {{data.col_nomJuegos}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Descripción del operador de juegos
+        </h2>
+        <p>
+          {{data.col_descJuegos}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Nombre de informante de cumpleaños
+        </h2>
+        <p>
+          {{data.col_nomCumple}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Descripción de informante de cumpleaños
+        </h2>
+        <p>
+          {{data.col_descCumple}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Nombre de personal de canje
+        </h2>
+        <p>
+          {{data.col_nomCanje}}
+        </p>
+      </div>
+      <div class="question">
+        <h2>
+          Descripción de personal de canje
+        </h2>
+        <p>
+          {{data.col_descCanje}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
