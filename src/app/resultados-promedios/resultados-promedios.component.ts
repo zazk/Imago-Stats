@@ -18,7 +18,6 @@ export class ResultadosPromediosComponent implements OnInit {
   }
 
   ngOnInit() {
-    let promedio = {};
     this.dataService.getDatas().subscribe(datas => {
       this.datas = datas;
       this.averageFirst();
@@ -26,25 +25,31 @@ export class ResultadosPromediosComponent implements OnInit {
   }
 
   averageFirst() {
-    //Iniciar promedio
-    let sum: number = 0;
-    let count: number = 0;
+    // Iniciar promedio
+    let sum = 0;
+    let count = 0;
+    const arraySec = [];
     this.datas.forEach(function (d) {
+      // tslint:disable-next-line:radix
       sum = sum + parseInt(d.c_calidadAtencion);
       console.log(d.c_calidadAtencion);
       count++;
+      arraySec.push(d.c_calidadAtencion);
+      console.log(arraySec);
     });
     this.prom.c_calidadAtencion = sum / count;
-    console.log("sum " + sum);
-    console.log("count " + count);
-    console.log(this.avg);
-    //console.log(this.averagingThis([1, 3]));
+    console.log('prom array');
+    console.log(this.averagingThis(arraySec));
+    // console.log("sum " + sum);
+    // console.log("count " + count);
+    // console.log(this.avg);
+    // console.log(this.averagingThis([1, 3]));
   }
 
   averagingThis(nmbs: number[]) {
-    let sum = nmbs.reduce((previous, current) => current += previous);
-    let avg = sum / nmbs.length;
-    console.log("prom" + avg);
+    const sum = nmbs.reduce((previous, current) => current += previous);
+    const avg = sum / nmbs.length;
+    // console.log( "prom" + avg);
     return avg;
   }
 }
