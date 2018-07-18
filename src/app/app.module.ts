@@ -27,7 +27,6 @@ import { SucursalesService } from './services/sucursales.service';
 import { PullSavedComponent } from './pull-saved/pull-saved.component';
 import { ResultadosSucursalesComponent } from './resultados-sucursales/resultados-sucursales.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
-import { ResultadosPromediosComponent } from './resultados-promedios/resultados-promedios.component';
 
 const AppRouter: Routes = [
   {
@@ -52,10 +51,6 @@ const AppRouter: Routes = [
     component: ResultadosSucursalesComponent
   },
   {
-    path: 'resultados-promedios',
-    component: ResultadosPromediosComponent
-  },
-  {
     path: 'registrar-sucursales',
     component: SucursalesComponent
   }
@@ -74,7 +69,6 @@ const AppRouter: Routes = [
     PullSavedComponent,
     ResultadosSucursalesComponent,
     SucursalesComponent,
-    ResultadosPromediosComponent
   ],
   imports: [
     BrowserModule,

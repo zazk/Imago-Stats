@@ -14,14 +14,13 @@ table tr:nth-child(odd){
 }
 table th{
     text-align: left;
-    padding: 5px 20px;
-    width: 40%;
+    padding: 5px 10px;
     background: #666;
     color: #fff;
 }
 table td{
     text-align: left;
-    padding: 5px 20px;
+    padding: 5px 10px;
     color: #333;
 }
 table tfoot td{
