@@ -9,16 +9,24 @@ table{
     width: 100%;
     float: left;
 }
-table th{
+table tr:nth-child(odd){
     background: #ddd;
+}
+table th{
     text-align: left;
     padding: 5px 20px;
     width: 40%;
+    background: #666;
+    color: #fff;
 }
 table td{
-    background: #fff;
     text-align: left;
     padding: 5px 20px;
+    color: #333;
+}
+table tfoot td{
+    background: #999;
+    font-weight: bold;
 }
 .toolbar a{
     margin: 0 10px
