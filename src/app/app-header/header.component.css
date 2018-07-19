@@ -1,4 +1,4 @@
-.header{
+.header {
     margin: 0 0 50px 0;
 }
 h1{
@@ -10,10 +10,10 @@ h1{
 .toolbar a {
     margin: 0 10px;
 }
-.item{
+.item {
     margin: 5px 5px;
 }
-.bar-menu{
+.bar-menu {
     background: #ddd;
     padding: 10px;
 }

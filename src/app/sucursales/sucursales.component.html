@@ -5,7 +5,21 @@
       <div *ngIf="sucursales?.length > 0;else noSucursales" class="sucursales">
         <ul class="sucursal-collection" *ngFor="let sucursal of sucursales">
           <li class="sucursal">
-            {{ sucursal.nombre }}
+            <div class="table-container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+              <div fxFlex="50%">
+                {{ sucursal.nombre }}
+              </div>
+              <div>
+                <button mat-raised-button color="primary" class="submit-btn" type="submit">
+                  Editar
+                </button>
+              </div>
+              <div>
+                <button mat-raised-button color="warn" class="submit-btn" type="submit">
+                  Eliminar
+                </button>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
@@ -22,7 +36,7 @@
         </p>
         <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
           <mat-form-field>
-            <input matInput placeholder="Nueva sucursal" formControlName="nombre">
+            <input matInput placeholder="Nombre sucursal" formControlName="nombre">
           </mat-form-field>
           <div>
             <button mat-raised-button color="primary" class="submit-btn" type="submit">Agregar sucursal</button>
