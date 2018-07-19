@@ -30,7 +30,7 @@ export class SucursalesService {
     return this.sucursales;
   }
   setSucursales(data: any) {
-    // Create and save example
+    // Create and save
     this.getSucursales();
     return Observable.fromPromise(this.sucursalesCollection.add(data));
   }

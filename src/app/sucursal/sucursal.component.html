@@ -1,0 +1,20 @@
+<div class="main-container">
+  <app-header></app-header>
+  <div class="table-container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div fxFlex="100%">
+      <div class="add-sucursales">
+        <p>
+          Editar sucursal
+        </p>
+        <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" [formGroup]="form">
+          <mat-form-field>
+            <input matInput placeholder="Nombre sucursal" formControlName="nombre">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" class="submit-btn" type="submit">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
