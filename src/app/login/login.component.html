@@ -1,32 +1,39 @@
 <div class="main-container">
-  <!--App Servicio
-  <app-seccion></app-seccion>-->
-  <!-- RECEPCIÓN / ATENCIÓN EN CAJA -->
-  <app-header></app-header>
-  <!--
-  <p>Form value: {{ myForm.value | json }}</p>-->
-  <!-- {food: 'lamb' } -->
-
-
-
-  <form class="example-form">
-    <mat-card class="example-card">
+  <header class="header">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="row-example">
+      <div class="logo" fxLayoutAlign="center center">
+        <img width="100px" src="/assets/img/logo.png" alt="">
+      </div>
+      <div>
+        <h1 class="header__title">
+          Cliente Incognito - Happy land
+        </h1>
+      </div>
+      <div class="logo" fxShow="true" fxLayoutAlign="center center" fxHide.xs="true">
+        <img width="80px" src="/assets/img/logo2.png" alt="">
+      </div>
+    </div>
+  </header>
+  <br>
+  <br>
+  <form class="form">
+    <mat-card class="card">
       <mat-card-header>
         <mat-card-title>Login</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form class="example-form">
-          <table class="example-full-width" cellspacing="0">
+        <form class="form">
+          <table class="full-width" cellspacing="0">
             <tr>
               <td>
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="full-width">
                   <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
                 </mat-form-field>
               </td>
             </tr>
             <tr>
               <td>
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="full-width">
                   <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
                 </mat-form-field>
               </td>

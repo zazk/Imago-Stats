@@ -35,7 +35,7 @@ import { LoginComponent } from './login/login.component';
 const AppRouter: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
