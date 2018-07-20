@@ -27,5 +27,8 @@ export class SucursalComponent implements OnInit {
     console.log(this.sucursalesService.getSucursal());
     console.log(this.sucursalesService.getSucursales());
   }
+  onSubmit() {
+    console.log('submit');
+  }
 
 }
