@@ -41,9 +41,11 @@
           </table>
         </form>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="primary">Login</button>
-      </mat-card-actions>
+      <div fxLayout="row" fxLayout fxLayoutAlign="center right">
+        <mat-card-actions flex>
+          <button mat-raised-button (click)="login()" color="primary">Login</button>
+        </mat-card-actions>
+      </div>
       <!--
       <mat-card-actions>
         <button mat-raised-button (click)="doRegister()" color="warn">Register</button>
