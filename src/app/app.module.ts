@@ -29,6 +29,8 @@ import { ResultadosSucursalesComponent } from './resultados-sucursales/resultado
 import { SucursalesComponent } from './sucursales/sucursales.component';
 import { ResultadoSucursalComponent } from './resultado-sucursal/resultado-sucursal.component';
 import { SucursalComponent } from './sucursal/sucursal.component';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { LoginComponent } from './login/login.component';
 
 const AppRouter: Routes = [
   {
@@ -64,6 +66,10 @@ const AppRouter: Routes = [
     path: 'resultado-sucursal/:codigo',
     component: ResultadoSucursalComponent,
   },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
 ];
 
 @NgModule({
@@ -81,6 +87,7 @@ const AppRouter: Routes = [
     SucursalesComponent,
     SucursalComponent,
     ResultadoSucursalComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,7 +99,8 @@ const AppRouter: Routes = [
     AngularFirestoreModule,
     AngularFireStorageModule,
     RouterModule.forRoot(AppRouter, { enableTracing: true }),
-    CdkTableModule
+    CdkTableModule,
+    AngularFireAuthModule,
   ],
   providers: [DataService, SucursalesService],
   bootstrap: [AppComponent]

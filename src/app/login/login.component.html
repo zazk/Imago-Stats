@@ -1,0 +1,51 @@
+<div class="main-container">
+  <!--App Servicio
+  <app-seccion></app-seccion>-->
+  <!-- RECEPCIÓN / ATENCIÓN EN CAJA -->
+  <app-header></app-header>
+  <!--
+  <p>Form value: {{ myForm.value | json }}</p>-->
+  <!-- {food: 'lamb' } -->
+
+
+
+  <form class="example-form">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="primary">Login</button>
+      </mat-card-actions>
+      <!--
+      <mat-card-actions>
+        <button mat-raised-button (click)="doRegister()" color="warn">Register</button>
+      </mat-card-actions>
+      <mat-card-actions>
+        <button mat-raised-button (click)="doLogin()" color="warn">Login</button>
+      </mat-card-actions>
+      -->
+    </mat-card>
+  </form>
+</div>
