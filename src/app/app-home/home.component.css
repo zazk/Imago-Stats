@@ -27,6 +27,9 @@
 .mat-form-field {
   width: 100%;
 }
+.mat-form-field.short-field {
+  width: 100px;
+}
 .mat-radio-button span {
   white-space: normal;
 }
@@ -44,6 +47,6 @@
   padding: 10px 5px 25px;
   font-size: 20px;
 }
-.text-message{
-    font-size: 14px;
+.text-message {
+  font-size: 14px;
 }

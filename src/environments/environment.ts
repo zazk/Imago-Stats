@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  hmr: false,
   firebaseConfig: {
     apiKey: 'AIzaSyDRGQEH8h7LFNCXYvp63RZC2BLE08wf0eQ',
     authDomain: 'imago-happyland.firebaseapp.com',
