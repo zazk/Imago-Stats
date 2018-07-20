@@ -11,11 +11,13 @@ import 'rxjs/add/observable/fromPromise';
 @Injectable()
 export class SucursalesService {
   sucursalesCollection: AngularFirestoreCollection<any>;
+  sucursalDocument: AngularFirestoreDocument<any>;
   sucursales: Observable<any[]>;
-  dataDoc: AngularFirestoreDocument<any>;
+  sucursal: any;
   constructor(public afs: AngularFirestore) {
     // Get collection
     this.sucursalesCollection = this.afs.collection('sucursales');
+    this.sucursalDocument = this.afs.collection('sucursales').doc('8ecRQBFxfpTf8WTQYZ0L');
 
     // this.tasks = this.afs.collection('tasks').valueChanges();
     this.sucursales = this.sucursalesCollection.snapshotChanges().map(changes => {
@@ -25,6 +27,15 @@ export class SucursalesService {
         return data;
       });
     });
+    this.sucursal = this.sucursalDocument.ref.get().then(function (doc) {
+      if (doc.exists) {
+        return doc.data();
+      } else {
+        return 'Doesnt exist';
+      }
+    }).catch(function (error) {
+      return error;
+    });
   }
   getSucursales() {
     return this.sucursales;
@@ -33,6 +44,9 @@ export class SucursalesService {
     // Create and save
     this.getSucursales();
     return Observable.fromPromise(this.sucursalesCollection.add(data));
+  }
+  getSucursal() {
+    return this.sucursal;
   }
 
 }
