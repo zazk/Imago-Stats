@@ -935,8 +935,12 @@
         <p>
           Subir Imágenes del local
         </p>
-        <progress *ngFor="let task of tasks; let i = index" max="100" [value]="(uploadProgress[i] | async)"></progress>
-        <input placeholder="Subir archivo" (change)="upload($event)" accept=".png,.jpg" type="file" multiple>
+        <input style="display: none;" #files placeholder="Subir archivo" (change)="upload($event)" accept=".png,.jpg" type="file"
+          multiple>
+        <button mat-raised-button (click)="files.click()" type="button">Seleccionar Imagenes del Local </button>
+        <div>
+          <progress *ngFor="let task of tasks; let i = index" max="100" [value]="(uploadProgress[i] | async)"></progress>
+        </div>
         <div class="result" *ngFor="let url of downloadURL; let i = index">
           <div *ngIf="url | async; let uploadSrc">
             <img [src]="uploadSrc" width="200" />
@@ -945,7 +949,7 @@
       </div>
     </div>
     <div class="seccion center">
-      <button mat-raised-button color="primary" class="submit-btn" type="submit">Enviar</button>
+      <button mat-raised-button color="primary" class="submit-btn" type="submit">Enviar Informe</button>
     </div>
   </form>
 </div>
