@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { forEach } from '@angular/router/src/utils/collection';
+import { ExportService } from '../services/export.service';
 
 @Component({
   selector: 'app-resultados-sucursales',
@@ -30,27 +31,47 @@ export class ResultadosSucursalesComponent implements OnInit {
     c_canjeSalida: 0
   };
   datas: any[];
-  constructor(public dataService: DataService) {}
+  datasExport: any[] = [];
+  constructor(
+    public dataService: DataService,
+    public exportService: ExportService
+  ) {}
 
   ngOnInit() {
+    this.datas = JSON.parse(localStorage.getItem('datas')) || {};
+    this.buildResults();
     this.dataService.getDatas().subscribe(datas => {
       this.datas = datas;
-      const keys: string[] = Object.keys(this.preguntas);
-      this.datas.forEach(data => {
-        data._promedio = 0;
-        for (const key of keys) {
-          const puntos = parseInt(data[key], 10);
-          this.preguntas[key] += puntos;
-          data._promedio += puntos;
-        }
-        data._promedio = data._promedio / keys.length;
-        console.log('DATA PROMEDIO', data._promedio, keys.length);
-      });
-      for (const key of keys) {
-        this.preguntas[key] = this.preguntas[key] / this.datas.length;
-      }
+      this.buildResults();
+      localStorage.setItem('datas', JSON.stringify(this.datas));
       console.log('DATA', this.datas);
       console.log('TOTAL SUMAS', this.preguntas);
     });
+  }
+
+  buildResults() {
+    const keys: string[] = Object.keys(this.preguntas);
+    this.datas.forEach((data, index) => {
+      data._promedio = 0;
+      this.datasExport[index] = {};
+      for (const key of keys) {
+        const puntos = parseInt(data[key], 10);
+        this.preguntas[key] += puntos;
+        data._promedio += puntos;
+        this.datasExport[index][key] = puntos;
+      }
+      data._promedio = (data._promedio / keys.length).toFixed(2);
+      console.log('DATA PROMEDIO', data._promedio, keys.length);
+    });
+    for (const key of keys) {
+      this.preguntas[key] = (this.preguntas[key] / this.datas.length).toFixed(
+        2
+      );
+    }
+  }
+  onExportResults() {
+    const headers: string[] = Object.keys(this.preguntas);
+    console.log('HEADERS', headers, 'DATA TO EXPORT', this.datasExport);
+    this.exportService.export('resultados.csv', this.datasExport, headers);
   }
 }
