@@ -6,7 +6,9 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { unidadadesNegocio, incidenciasLocal } from '../models/unidades';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { map } from '@firebase/util';
+import { encuesta } from '../models/encuesta';
+import { finalize } from 'rxjs/operators';
+import { Observable } from '../../../node_modules/@firebase/util';
 
 @Component({
   selector: 'app-home',
@@ -19,9 +21,11 @@ export class HomeComponent implements OnInit {
   form: FormGroup;
   date = this.catchDate();
   now = this.catchTime();
-  ref: any;
-  task: any;
-  uploadProgress: any;
+  ref: any[];
+  tasks: any[] = [];
+  uploadProgress: any[] = [];
+  downloadURL: Observable<string>[] = [];
+  files: any[] = [];
   public unidades = unidadadesNegocio;
   public incidencias = incidenciasLocal;
   constructor(
@@ -31,73 +35,9 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private afStorage: AngularFireStorage
   ) {
-    this.form = fb.group({
-      operatividad: '',
-      canje: '',
-      recepcion: '',
-      experiencia: '',
-      unidades: '',
-      unidadescheck: null,
-      unidadesnegocio: this.buildCheckboxes(unidadadesNegocio),
-      incidencias: this.buildCheckboxes(incidenciasLocal),
-      sucursal: '',
-      pv_recargaMinima: 0,
-      pv_llegadaPuntoVenta: 0,
-      pv_minutosEspera: 0,
-      pv_personasFila: 0,
-      pv_calidadAtencion: 0,
-      pv_ventaSugestiva: 0,
-      pv_salida: 0,
-      es_aparienciaHombres: 0,
-      es_aparienciaMujeres: 0,
-      es_actitudPersonal: 0,
-      es_asesoriaAtencionJuegos: 0,
-      un_happyBirthday: false,
-      un_happyKids: false,
-      un_happyDivas: false,
-      un_happyBirthdayAtencion: 0,
-      un_happyBirthdayNegociacion: 0,
-      un_happyKidsPresentacion: 0,
-      un_happyBirthdayPresentacion: 0,
-      un_happyDivasPresentacion: 0,
-      oll_countMaqMal: 0,
-      oll_numMaqMal: 0,
-      oll_numMaqMalLetrero: 0,
-      oll_listaMaqMal: '',
-      oll_countMaqSucias: 0,
-      oll_numMaqSucias: 0,
-      oll_listaMaqSucias: '',
-      oll_numInc: 0,
-      oll_incListaOtros: '',
-      oll_incProRemodelacion: 0,
-      oll_incProRemodelacionSenhal: 0,
-      oll_incOperadoresJuegos: 0,
-      c_calidadAtencion: 0,
-      c_canjeEspera: 0,
-      c_canjeFila: 0,
-      c_canjeSalida: 0,
-
-      com_canje: '',
-      com_recepcion: '',
-      com_experiencia: '',
-      com_unidades: '',
-      com_operatividad: '',
-
-      fe_realizacion: this.date,
-      fe_horaEntrada: this.now,
-      fe_horaSalida: '',
-      fe_local: '',
-      fe_evaluador: '',
-
-      col_nomCaja: '',
-      col_descCaja: '',
-      col_nomJuegos: '',
-      col_descJuegos: '',
-      col_nomCumple: '',
-      col_descCumple: '',
-      col_nomCanje: '',
-      col_descCanje: ''
-    });
+    encuesta.unidadesnegocio = this.buildCheckboxes(unidadadesNegocio);
+    encuesta.incidencias = this.buildCheckboxes(incidenciasLocal);
+    this.form = fb.group(encuesta);
   }
   ngOnInit() {
     this.dataService.getDatas().subscribe(datas => {
@@ -137,7 +77,7 @@ export class HomeComponent implements OnInit {
   catchDate() {
     const d = new Date();
     const dd = d.getDate();
-    const mm = d.getMonth() + 1; //January is 0!
+    const mm = d.getMonth() + 1; // January is 0!
     const yyyy = d.getFullYear();
     let today = '';
     today = mm + '/' + dd + '/' + yyyy;
@@ -147,9 +87,11 @@ export class HomeComponent implements OnInit {
   onSubmit(form: any) {
     const { unidadesnegocio, incidencias } = form.value;
     console.log(form.value, form.value['unidades']);
+    console.log('DONWLOAD URL', this.downloadURL);
     const obj = Object.assign({}, form.value, {
       unidadesnegocio: this.buildParam(unidadesnegocio, this.unidades),
-      incidencias: this.buildParam(incidencias, this.incidencias)
+      incidencias: this.buildParam(incidencias, this.incidencias),
+      images: this.files
     });
     this.dataService.setDatas(obj).subscribe(r => {
       console.log('R', r);
@@ -158,16 +100,31 @@ export class HomeComponent implements OnInit {
   }
   onFileChange(event: any) {}
   public upload(event) {
-    // create a random id
-    const randomId = Math.random()
+    this.tasks = [];
+    this.uploadProgress = [];
+    this.downloadURL = [];
+    this.ref = [];
+    const files = event.target.files;
+    for (let i = 0; i < files.length; i++) {
+      this.ref[i] = this.afStorage.ref(this.randomId);
+      this.tasks[i] = this.ref[i].put(files[i]);
+      this.uploadProgress[i] = this.tasks[i].percentageChanges();
+      this.downloadURL[i] = this.tasks[i].downloadURL();
+      this.downloadURL[i].subscribe(fileURL => {
+        this.files[i] = fileURL;
+      });
+      this.tasks[i]
+        .snapshotChanges()
+        .pipe(
+          finalize(() => (this.downloadURL[i] = this.ref[i].getDownloadURL()))
+        )
+        .subscribe();
+    }
+  }
+
+  get randomId() {
+    return Math.random()
       .toString(36)
       .substring(2);
-    // create a reference to the storage bucket location
-    this.ref = this.afStorage.ref(randomId);
-    // the put method creates an AngularFireUploadTask
-    // and kicks off the upload
-    this.task = this.ref.put(event.target.files[0]);
-
-    this.uploadProgress = this.task.snapshotChanges();
   }
 }
